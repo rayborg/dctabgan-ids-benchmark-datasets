@@ -1,0 +1,43 @@
+{
+  "dataset_family": "CIC-IDS-2017",
+  "dataset_prefix": "thursday_web_attack_bruteforce_vs_benign",
+  "task_name": "CIC-IDS-2017 Thursday Web Attack - Brute Force vs BENIGN",
+  "split_mode": "chrono",
+  "split_strategy": "classwise_temporal_train_test",
+  "source_description": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+  "positive_definition": [
+    "Web Attack - Brute Force"
+  ],
+  "minority_class": "attack",
+  "ratio_floor": 111,
+  "candidate_counts": {
+    "benign": 168186,
+    "attack": 1507
+  },
+  "source_attack_to_benign_ratio": 0.008960317743450703,
+  "split_candidate_counts": {
+    "train": {
+      "benign": 84093,
+      "attack": 753
+    },
+    "test": {
+      "benign": 84093,
+      "attack": 754
+    }
+  },
+  "split_final_counts": {
+    "train": {
+      "benign": 55500,
+      "attack": 500
+    },
+    "test": {
+      "benign": 55500,
+      "attack": 500
+    }
+  },
+  "final_counts": {
+    "benign": 111000,
+    "attack": 1000
+  },
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv"
+}

@@ -1,0 +1,201 @@
+{
+  "benchmark_collection": "benchmark_dataset_collection_v11_preserved_ratio_single_label_nodos_30d_clean_dct_gan_dose_matched_train500_test500",
+  "benchmark_version": "benchmark_preserved_ratio_single_label_train500_test500_2026-05-20_scope30_nodos_clean_dct_gan_dose_matched_operational",
+  "status": "prepared_clean_dct_gan_dose_matched_operational_evaluation_definition",
+  "inherits_benchmark_definition": "PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json",
+  "dataset_count": 30,
+  "learner_count": 6,
+  "method_count": 20,
+  "matched_block_count": 180,
+  "primary_ranking_policy": "ids_operational_metric_average_rank_dataset_mean",
+  "operational_metrics": [
+    {"key": "recall", "label": "Recall", "higher_is_better": true},
+    {"key": "fpr", "label": "FPR", "higher_is_better": false},
+    {"key": "precision", "label": "Precision", "higher_is_better": true},
+    {"key": "mcc", "label": "MCC", "higher_is_better": true},
+    {"key": "f1", "label": "F1", "higher_is_better": true},
+    {"key": "balanced_accuracy", "label": "Balanced Accuracy", "higher_is_better": true},
+    {"key": "auroc", "label": "AUROC", "higher_is_better": true},
+    {"key": "pr_auc_ap", "label": "AP/PR-AUC", "higher_is_better": true}
+  ],
+  "methods": [
+    {
+      "key": "no_treatment",
+      "label": "No treatment",
+      "source_method_key": "no_resampling",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Control condition"
+    },
+    {
+      "key": "class_weighted",
+      "label": "Class-weighted training",
+      "source_method_key": "class_weighted",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Classifier-side intervention"
+    },
+    {
+      "key": "smote",
+      "label": "SMOTE",
+      "source_method_key": "smote",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Classical resampling treatment"
+    },
+    {
+      "key": "random_over_sampler",
+      "label": "RandomOverSampler",
+      "source_method_key": "random_over_sampler",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Classical resampling treatment"
+    },
+    {
+      "key": "random_under_sampler",
+      "label": "RandomUnderSampler",
+      "source_method_key": "random_under_sampler",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Classical resampling treatment"
+    },
+    {
+      "key": "borderline_smote",
+      "label": "BorderlineSMOTE",
+      "source_method_key": "borderline_smote",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Classical resampling treatment"
+    },
+    {
+      "key": "smoteenn",
+      "label": "SMOTEENN",
+      "source_method_key": "smoteenn",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "Classical resampling treatment"
+    },
+    {
+      "key": "ctgan_fullgap",
+      "label": "CTGAN full gap",
+      "source_method_key": "ctgan",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "GAN treatment, full gap"
+    },
+    {
+      "key": "copulagan_fullgap",
+      "label": "CopulaGAN full gap",
+      "source_method_key": "copulagan",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "GAN treatment, full gap"
+    },
+    {
+      "key": "tvae_fullgap",
+      "label": "TVAE full gap",
+      "source_method_key": "tvae",
+      "source_run_group": "standard_reference",
+      "utility_family": "baseline",
+      "family": "GAN treatment, full gap"
+    },
+    {
+      "key": "ctgan_clean_mult1",
+      "label": "CTGAN 1x",
+      "source_method_key": "ctgan",
+      "source_run_group": "gan_mult1_clean",
+      "utility_family": "baseline",
+      "family": "GAN treatment, clean dose-matched"
+    },
+    {
+      "key": "copulagan_clean_mult1",
+      "label": "CopulaGAN 1x",
+      "source_method_key": "copulagan",
+      "source_run_group": "gan_mult1_clean",
+      "utility_family": "baseline",
+      "family": "GAN treatment, clean dose-matched"
+    },
+    {
+      "key": "tvae_clean_mult1",
+      "label": "TVAE 1x",
+      "source_method_key": "tvae",
+      "source_run_group": "gan_mult1_clean",
+      "utility_family": "baseline",
+      "family": "GAN treatment, clean dose-matched"
+    },
+    {
+      "key": "ctgan_clean_mult2",
+      "label": "CTGAN 2x",
+      "source_method_key": "ctgan",
+      "source_run_group": "gan_mult2_clean",
+      "utility_family": "baseline",
+      "family": "GAN treatment, clean dose-matched"
+    },
+    {
+      "key": "copulagan_clean_mult2",
+      "label": "CopulaGAN 2x",
+      "source_method_key": "copulagan",
+      "source_run_group": "gan_mult2_clean",
+      "utility_family": "baseline",
+      "family": "GAN treatment, clean dose-matched"
+    },
+    {
+      "key": "tvae_clean_mult2",
+      "label": "TVAE 2x",
+      "source_method_key": "tvae",
+      "source_run_group": "gan_mult2_clean",
+      "utility_family": "baseline",
+      "family": "GAN treatment, clean dose-matched"
+    },
+    {
+      "key": "dctabgan_clean_mult1",
+      "label": "DCTABGAN 1x",
+      "source_method_key": "dctabgan",
+      "source_run_group": "clean_mult1",
+      "utility_family": "dct",
+      "family": "Clean DCTABGAN variant"
+    },
+    {
+      "key": "dctabgan_clean_mult2",
+      "label": "DCTABGAN 2x",
+      "source_method_key": "dctabgan",
+      "source_run_group": "clean_mult2",
+      "utility_family": "dct",
+      "family": "Clean DCTABGAN variant"
+    },
+    {
+      "key": "dctabgan_clean_fullgap",
+      "label": "DCTABGAN full gap",
+      "source_method_key": "dctabgan",
+      "source_run_group": "clean_fullgap",
+      "utility_family": "dct",
+      "family": "Clean DCTABGAN variant"
+    },
+    {
+      "key": "dctabgan_clean_mult1_residualweighted",
+      "label": "DCTABGAN 1x residual-weighted",
+      "source_method_key": "dctabgan",
+      "source_run_group": "clean_mult1_residualweighted",
+      "utility_family": "dct",
+      "family": "Clean DCTABGAN variant"
+    }
+  ],
+  "source_run_groups": {
+    "standard_reference": "benchmark_singlelabel30_nodos_20method_reference_20260511_01",
+    "gan_mult1_clean": "benchmark_singlelabel30_nodos_gan_mult1_clean_20260520_01",
+    "gan_mult2_clean": "benchmark_singlelabel30_nodos_gan_mult2_clean_20260520_01",
+    "clean_mult1": "benchmark_singlelabel30_nodos_dct_mult1_clean_ckpt0009_20260517_01",
+    "clean_mult2": "benchmark_singlelabel30_nodos_dct_mult2_clean_ckpt0009_20260517_01",
+    "clean_fullgap": "benchmark_singlelabel30_nodos_dct_fullgap_clean_ckpt0009_20260517_01",
+    "clean_mult1_residualweighted": "benchmark_singlelabel30_nodos_dct_mult1_residualweighted_20260517_01"
+  },
+  "reduced_comparison_policy": "Exclude generic + CW combinations and the mixed-volume current DCTABGAN label; retain standalone Class-weighted training, classical resampling, full-gap CTGAN/CopulaGAN/TVAE, dose-matched clean 1x/2x CTGAN/CopulaGAN/TVAE, and the four clean DCTABGAN variants.",
+  "notes": [
+    "Dataset and learner surfaces are inherited from the primary 30D no-DoS 20-method definition.",
+    "Primary evaluation is the IDS operational metric-level average rank over dataset-level means across the six learners.",
+    "FPR is lower-is-better; Recall, Precision, MCC, F1, Balanced Accuracy, AUROC, and AP/PR-AUC are higher-is-better.",
+    "The standard_reference source supplies control/classical rows and the full-gap CTGAN, CopulaGAN, and TVAE rows.",
+    "The gan_mult1_clean and gan_mult2_clean rows must not be ranked until complete 30 dataset x 6 learner utility coverage exists.",
+    "The DCTABGAN rows use the already prepared clean DCT source groups, including the 1x residual-weighted variant."
+  ]
+}

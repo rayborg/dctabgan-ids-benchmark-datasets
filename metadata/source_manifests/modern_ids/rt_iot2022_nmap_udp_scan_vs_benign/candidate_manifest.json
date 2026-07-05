@@ -1,0 +1,29 @@
+{
+  "candidate_id": "rt_iot2022_nmap_udp_scan_vs_benign",
+  "dataset": "RT-IoT2022",
+  "year": 2023,
+  "positive_class": "NMAP_UDP_SCAN",
+  "negative_class": "benign_control",
+  "ratio_floor": 4,
+  "pipeline_status": "materialized_for_benchmark_definition",
+  "provisional_source_caveat": "",
+  "input_train_csv": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/train.csv",
+  "input_test_csv": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/test.csv",
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv",
+  "split_metadata": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_udp_scan_vs_benign/split_metadata.json",
+  "train_counts": {
+    "0": 2000,
+    "1": 500
+  },
+  "test_counts": {
+    "0": 2000,
+    "1": 500
+  },
+  "train_test_source_row_index_overlap": 0,
+  "input_column_count": 85,
+  "output_column_count": 85,
+  "feature_count": 83,
+  "dropped_columns": [],
+  "configured_drop_columns_missing": [],
+  "risk_note": "No extra materialization drops; remaining risk is small train size relative to feature count and retained port-like fields."
+}

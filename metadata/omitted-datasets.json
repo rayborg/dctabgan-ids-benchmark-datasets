@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0",
+  "description": "Machine-readable list of the 13 benchmark tasks omitted from the public downloadable CSV bundle. These CSVs are reconstructed locally by copying exact processed files from a separately obtained dctabgan-benchmark-expansion clone; they are not redistributed by this repository.",
+  "benchmark_repo_name": "dctabgan-benchmark-expansion",
+  "benchmark_repo_path_hint": "/path/to/dctabgan-benchmark-expansion",
+  "release_repo_target_policy": "target_local_csv paths are local/private recreation outputs and remain omitted from the public release bundle.",
+  "omitted_dataset_count": 13,
+  "datasets": [
+    {
+      "task_key": "cic_unsw_nb15_exploits",
+      "title": "CIC-UNSW-NB15 Exploits vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_exploits_vs_benign_preservedratio_train500minority_5500benign_test500minority_5500benign_fixed.csv",
+      "target_local_csv": "data/cic-unsw-nb15/cic_unsw_nb15_exploits/cic_unsw_nb15_exploits_vs_benign_preservedratio_train500minority_5500benign_test500minority_5500benign_fixed.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "2daec4150e239878326929cd2eebe40cb1256d6f47cade10ea93d596bddfea6e",
+        "bytes": 5401932,
+        "row_count": 12000,
+        "column_count": 78,
+        "label_column": "label",
+        "label_counts": {
+          "0": 11000,
+          "1": 1000
+        },
+        "feature_count": 76
+      },
+      "train_counts": {
+        "majority": 5500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 5500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_exploits_vs_benign.json",
+      "task_manifest_files": [],
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route."
+    },
+    {
+      "task_key": "cic_unsw_nb15_fuzzers",
+      "title": "CIC-UNSW-NB15 Fuzzers vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_fuzzers_vs_benign_preservedratio_train500minority_6000benign_test500minority_6000benign_fixed.csv",
+      "target_local_csv": "data/cic-unsw-nb15/cic_unsw_nb15_fuzzers/cic_unsw_nb15_fuzzers_vs_benign_preservedratio_train500minority_6000benign_test500minority_6000benign_fixed.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "959cd6d784a7fe5db12aba280cbb009e7655f353fa069863f5ae16b7149d7765",
+        "bytes": 5754317,
+        "row_count": 13000,
+        "column_count": 78,
+        "label_column": "label",
+        "label_counts": {
+          "0": 12000,
+          "1": 1000
+        },
+        "feature_count": 76
+      },
+      "train_counts": {
+        "majority": 6000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 6000,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_fuzzers_vs_benign.json",
+      "task_manifest_files": [],
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route."
+    },
+    {
+      "task_key": "cic_unsw_nb15_generic",
+      "title": "CIC-UNSW-NB15 Generic vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_generic_vs_benign_preservedratio_train500minority_38500benign_test500minority_38500benign_fixed.csv",
+      "target_local_csv": "data/cic-unsw-nb15/cic_unsw_nb15_generic/cic_unsw_nb15_generic_vs_benign_preservedratio_train500minority_38500benign_test500minority_38500benign_fixed.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "cc4e1d7c0ed46cac9a34573d0233909d197d5a28185290b8577e3e1532255621",
+        "bytes": 34710653,
+        "row_count": 78000,
+        "column_count": 78,
+        "label_column": "label",
+        "label_counts": {
+          "0": 77000,
+          "1": 1000
+        },
+        "feature_count": 76
+      },
+      "train_counts": {
+        "majority": 38500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 38500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_generic_vs_benign.json",
+      "task_manifest_files": [],
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route."
+    },
+    {
+      "task_key": "cic_unsw_nb15_reconnaissance",
+      "title": "CIC-UNSW-NB15 Reconnaissance vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_reconnaissance_vs_benign_preservedratio_train500minority_10500benign_test500minority_10500benign_fixed.csv",
+      "target_local_csv": "data/cic-unsw-nb15/cic_unsw_nb15_reconnaissance/cic_unsw_nb15_reconnaissance_vs_benign_preservedratio_train500minority_10500benign_test500minority_10500benign_fixed.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "097d6420dd6471facd576c1aa254ecf8f2ca28d014751057ed87d57f5ddc30e3",
+        "bytes": 9737139,
+        "row_count": 22000,
+        "column_count": 78,
+        "label_column": "label",
+        "label_counts": {
+          "0": 21000,
+          "1": 1000
+        },
+        "feature_count": 76
+      },
+      "train_counts": {
+        "majority": 10500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 10500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_reconnaissance_vs_benign.json",
+      "task_manifest_files": [],
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route."
+    },
+    {
+      "task_key": "cic_unsw_nb15_shellcode",
+      "title": "CIC-UNSW-NB15 Shellcode vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_shellcode_vs_benign_preservedratio_train500minority_85000benign_test500minority_85000benign_fixed.csv",
+      "target_local_csv": "data/cic-unsw-nb15/cic_unsw_nb15_shellcode/cic_unsw_nb15_shellcode_vs_benign_preservedratio_train500minority_85000benign_test500minority_85000benign_fixed.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "10eaa828e27e9721a1c1aa7aaccda6deb1d09fce117ede6573a04154cf5577c4",
+        "bytes": 75930554,
+        "row_count": 171000,
+        "column_count": 78,
+        "label_column": "label",
+        "label_counts": {
+          "0": 170000,
+          "1": 1000
+        },
+        "feature_count": 76
+      },
+      "train_counts": {
+        "majority": 85000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 85000,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_shellcode_vs_benign.json",
+      "task_manifest_files": [],
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route."
+    },
+    {
+      "task_key": "ciciomt2024_arp_spoofing_vs_benign",
+      "title": "CICIoMT2024Small mirror ARP Spoofing vs BENIGN",
+      "source_corpus": "CICIoMT2024Small mirror",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/ciciomt2024_arp_spoofing_vs_benign/ciciomt2024_arp_spoofing_vs_benign_preservedratio_train500minority_12500majority_test500minority_12500majority_modern7.csv",
+      "target_local_csv": "data/ciciomt2024small-mirror/ciciomt2024_arp_spoofing_vs_benign/ciciomt2024_arp_spoofing_vs_benign_preservedratio_train500minority_12500majority_test500minority_12500majority_modern7.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "0aa3eef639f809ec2ea9e7f68edec414685edb91d96ab465b96cd8411b29d0f7",
+        "bytes": 15124453,
+        "row_count": 26000,
+        "column_count": 81,
+        "label_column": "label",
+        "label_counts": {
+          "0": 25000,
+          "1": 1000
+        },
+        "feature_count": 79
+      },
+      "train_counts": {
+        "majority": 12500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 12500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/split_metadata.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/access_status.md"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames."
+    },
+    {
+      "task_key": "ciciomt2024_mqtt_malformed_data_vs_benign",
+      "title": "CICIoMT2024Small mirror MQTT Malformed Data vs BENIGN",
+      "source_corpus": "CICIoMT2024Small mirror",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/ciciomt2024_mqtt_malformed_data_vs_benign/ciciomt2024_mqtt_malformed_data_vs_benign_preservedratio_train500minority_8500majority_test500minority_8500majority_modern7.csv",
+      "target_local_csv": "data/ciciomt2024small-mirror/ciciomt2024_mqtt_malformed_data_vs_benign/ciciomt2024_mqtt_malformed_data_vs_benign_preservedratio_train500minority_8500majority_test500minority_8500majority_modern7.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "fb7a3a48323270bbb19fa0032450474b489ee14993cfb0a253537c2647e07d27",
+        "bytes": 10295424,
+        "row_count": 18000,
+        "column_count": 81,
+        "label_column": "label",
+        "label_counts": {
+          "0": 17000,
+          "1": 1000
+        },
+        "feature_count": 79
+      },
+      "train_counts": {
+        "majority": 8500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 8500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/split_metadata.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/access_status.md"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames."
+    },
+    {
+      "task_key": "edge_iiotset_sql_injection_vs_normal",
+      "title": "Edge-IIoTset SQL injection vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_sql_injection_vs_normal/edge_iiotset_sql_injection_vs_normal_preservedratio_train500minority_15500majority_test500minority_15500majority_modern7.csv",
+      "target_local_csv": "data/edge-iiotset/edge_iiotset_sql_injection_vs_normal/edge_iiotset_sql_injection_vs_normal_preservedratio_train500minority_15500majority_test500minority_15500majority_modern7.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "b49e65f07b9782593d1e21b9e95c40b11e7f2f3ca22a3cab370d91ba7b984d5b",
+        "bytes": 5575612,
+        "row_count": 32000,
+        "column_count": 43,
+        "label_column": "label",
+        "label_counts": {
+          "0": 31000,
+          "1": 1000
+        },
+        "feature_count": 41
+      },
+      "train_counts": {
+        "majority": 15500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 15500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_sql_injection_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_sql_injection_vs_normal/split_metadata.json"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle."
+    },
+    {
+      "task_key": "edge_iiotset_password_vs_normal",
+      "title": "Edge-IIoTset Password vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_password_vs_normal/edge_iiotset_password_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_modern7.csv",
+      "target_local_csv": "data/edge-iiotset/edge_iiotset_password_vs_normal/edge_iiotset_password_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_modern7.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "1ce880288293dba2d51ed3183790236e37536aaf0247c1ee0c5379a3d8f3650a",
+        "bytes": 5750194,
+        "row_count": 33000,
+        "column_count": 43,
+        "label_column": "label",
+        "label_counts": {
+          "0": 32000,
+          "1": 1000
+        },
+        "feature_count": 41
+      },
+      "train_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_password_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_password_vs_normal/split_metadata.json"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle."
+    },
+    {
+      "task_key": "edge_iiotset_uploading_vs_normal",
+      "title": "Edge-IIoTset Uploading vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_uploading_vs_normal/edge_iiotset_uploading_vs_normal_preservedratio_train500minority_21000majority_test500minority_21000majority_modern7.csv",
+      "target_local_csv": "data/edge-iiotset/edge_iiotset_uploading_vs_normal/edge_iiotset_uploading_vs_normal_preservedratio_train500minority_21000majority_test500minority_21000majority_modern7.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "634653a128cbab0d34664f80c50b7d1fc6334623607f6f46e200fb440c8074e7",
+        "bytes": 7492191,
+        "row_count": 43000,
+        "column_count": 43,
+        "label_column": "label",
+        "label_counts": {
+          "0": 42000,
+          "1": 1000
+        },
+        "feature_count": 41
+      },
+      "train_counts": {
+        "majority": 21000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 21000,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_uploading_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_uploading_vs_normal/split_metadata.json"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle."
+    },
+    {
+      "task_key": "edge_iiotset_vulnerability_scanner_vs_normal",
+      "title": "Edge-IIoTset Vulnerability scanner vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_vulnerability_scanner_vs_normal/edge_iiotset_vulnerability_scanner_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_additional10.csv",
+      "target_local_csv": "data/edge-iiotset/edge_iiotset_vulnerability_scanner_vs_normal/edge_iiotset_vulnerability_scanner_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_additional10.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "fbcef8af4abc6fa47d0037b385d54d8ae19f43629b7060fffcf0b0ba2418abe9",
+        "bytes": 5755727,
+        "row_count": 33000,
+        "column_count": 43,
+        "label_column": "label",
+        "label_counts": {
+          "0": 32000,
+          "1": 1000
+        },
+        "feature_count": 41
+      },
+      "train_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_vulnerability_scanner_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_vulnerability_scanner_vs_normal/split_metadata.json"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle."
+    },
+    {
+      "task_key": "edge_iiotset_backdoor_vs_normal",
+      "title": "Edge-IIoTset Backdoor vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_backdoor_vs_normal/edge_iiotset_backdoor_vs_normal_preservedratio_train500minority_32000majority_test500minority_32000majority_additional10.csv",
+      "target_local_csv": "data/edge-iiotset/edge_iiotset_backdoor_vs_normal/edge_iiotset_backdoor_vs_normal_preservedratio_train500minority_32000majority_test500minority_32000majority_additional10.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "a4f2b2072a41fbb9cf1acee1c4b959cc1a8708bba3fa8fe2a3cb92ecf2f07b81",
+        "bytes": 11329236,
+        "row_count": 65000,
+        "column_count": 43,
+        "label_column": "label",
+        "label_counts": {
+          "0": 64000,
+          "1": 1000
+        },
+        "feature_count": 41
+      },
+      "train_counts": {
+        "majority": 32000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 32000,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_backdoor_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_backdoor_vs_normal/split_metadata.json"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle."
+    },
+    {
+      "task_key": "edge_iiotset_port_scanning_vs_normal",
+      "title": "Edge-IIoTset Port Scanning vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_port_scanning_vs_normal/edge_iiotset_port_scanning_vs_normal_preservedratio_train500minority_35500majority_test500minority_35500majority_additional10.csv",
+      "target_local_csv": "data/edge-iiotset/edge_iiotset_port_scanning_vs_normal/edge_iiotset_port_scanning_vs_normal_preservedratio_train500minority_35500majority_test500minority_35500majority_additional10.csv",
+      "benchmark_rebuild_script": "repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+      "expected_source_csv": {
+        "sha256": "e1e6c34b716cdbf8f8fd8f851bc405ad83b3fe8b295165ca8b1942ebaf79fdc0",
+        "bytes": 12545644,
+        "row_count": 72000,
+        "column_count": 43,
+        "label_column": "label",
+        "label_counts": {
+          "0": 71000,
+          "1": 1000
+        },
+        "feature_count": 41
+      },
+      "train_counts": {
+        "majority": 35500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 35500,
+        "minority": 500
+      },
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_port_scanning_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_port_scanning_vs_normal/split_metadata.json"
+      ],
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle."
+    }
+  ]
+}

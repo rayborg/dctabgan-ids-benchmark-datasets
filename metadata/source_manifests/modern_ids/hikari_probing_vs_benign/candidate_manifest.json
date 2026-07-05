@@ -1,0 +1,26 @@
+{
+  "candidate_id": "hikari_probing_vs_benign",
+  "dataset": "HIKARI-2021",
+  "positive_class": "Probing",
+  "negative_class": "benign_control",
+  "ratio_floor": 22,
+  "pipeline_status": "materialized_for_benchmark_definition",
+  "provisional_source_caveat": "",
+  "input_train_csv": "data/staging/modern_ids_pipeline_candidates/hikari_probing_vs_benign/train.csv",
+  "input_test_csv": "data/staging/modern_ids_pipeline_candidates/hikari_probing_vs_benign/test.csv",
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv",
+  "split_metadata": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/hikari_probing_vs_benign/split_metadata.json",
+  "train_counts": {
+    "0": 11000,
+    "1": 500
+  },
+  "test_counts": {
+    "0": 11000,
+    "1": 500
+  },
+  "train_test_source_row_index_overlap": 0,
+  "input_column_count": 83,
+  "output_column_count": 83,
+  "feature_count": 81,
+  "dropped_columns": []
+}

@@ -1,0 +1,43 @@
+{
+  "dataset_family": "CIC-IDS-2017",
+  "dataset_prefix": "friday_bot_vs_benign",
+  "task_name": "CIC-IDS-2017 Friday Bot vs BENIGN",
+  "split_mode": "chrono",
+  "split_strategy": "classwise_temporal_train_test",
+  "source_description": "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+  "positive_definition": [
+    "Bot"
+  ],
+  "minority_class": "attack",
+  "ratio_floor": 96,
+  "candidate_counts": {
+    "benign": 189067,
+    "attack": 1966
+  },
+  "source_attack_to_benign_ratio": 0.010398430186124496,
+  "split_candidate_counts": {
+    "train": {
+      "benign": 94533,
+      "attack": 983
+    },
+    "test": {
+      "benign": 94534,
+      "attack": 983
+    }
+  },
+  "split_final_counts": {
+    "train": {
+      "benign": 48000,
+      "attack": 500
+    },
+    "test": {
+      "benign": 48000,
+      "attack": 500
+    }
+  },
+  "final_counts": {
+    "benign": 96000,
+    "attack": 1000
+  },
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv"
+}

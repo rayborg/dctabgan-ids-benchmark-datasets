@@ -1,0 +1,43 @@
+{
+  "dataset_family": "CIC-IDS-2017",
+  "dataset_prefix": "tuesday_ssh_patator_vs_benign",
+  "task_name": "CIC-IDS-2017 Tuesday SSH-Patator vs BENIGN",
+  "split_mode": "chrono",
+  "split_strategy": "classwise_temporal_train_test",
+  "source_description": "Tuesday-WorkingHours.pcap_ISCX.csv",
+  "positive_definition": [
+    "SSH-Patator"
+  ],
+  "minority_class": "attack",
+  "ratio_floor": 73,
+  "candidate_counts": {
+    "benign": 432074,
+    "attack": 5897
+  },
+  "source_attack_to_benign_ratio": 0.013648125089683712,
+  "split_candidate_counts": {
+    "train": {
+      "benign": 216037,
+      "attack": 2948
+    },
+    "test": {
+      "benign": 216037,
+      "attack": 2949
+    }
+  },
+  "split_final_counts": {
+    "train": {
+      "benign": 36500,
+      "attack": 500
+    },
+    "test": {
+      "benign": 36500,
+      "attack": 500
+    }
+  },
+  "final_counts": {
+    "benign": 73000,
+    "attack": 1000
+  },
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv"
+}

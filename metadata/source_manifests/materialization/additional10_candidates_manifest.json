@@ -1,0 +1,355 @@
+{
+  "status": "staged_for_pipeline_integration_review",
+  "scope": "Standalone staging only; no benchmark definition, runner, dashboard, training, or framework files were modified.",
+  "generated_at": "2026-05-12T03:04:51Z",
+  "sampling_rule": {
+    "name": "preserved_ratio_train500_test500",
+    "ratio_floor": "floor(staged_source_majority_count / staged_source_minority_attack_count)",
+    "train_attack_rows": 500,
+    "test_attack_rows": 500,
+    "majority_rows_per_split": "ratio_floor * 500",
+    "validation_split": false,
+    "seed": 20260511
+  },
+  "candidate_count": 10,
+  "materialized_candidate_count": 10,
+  "manifest_only_candidate_count": 0,
+  "candidates": [
+    {
+      "candidate_id": "5g_nidd_tcp_connect_scan_vs_benign",
+      "dataset": "5G-NIDD",
+      "year": 2022,
+      "status": "materialized_local_csvs",
+      "positive_class": "TCPConnectScan",
+      "negative_class": "Benign",
+      "feature_count": 47,
+      "source_counts": {
+        "label_0_majority": 477737,
+        "label_1_attack": 20052
+      },
+      "ratio_floor": 23,
+      "train_class_rows": {
+        "label_0_majority": 11500,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 11500,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Strong scan candidate from Combined.zip; cleanly non-flood.",
+      "caveat": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route."
+    },
+    {
+      "candidate_id": "5g_nidd_syn_scan_vs_benign",
+      "dataset": "5G-NIDD",
+      "year": 2022,
+      "status": "materialized_local_csvs",
+      "positive_class": "SYNScan",
+      "negative_class": "Benign",
+      "feature_count": 47,
+      "source_counts": {
+        "label_0_majority": 477737,
+        "label_1_attack": 20043
+      },
+      "ratio_floor": 23,
+      "train_class_rows": {
+        "label_0_majority": 11500,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 11500,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/5g_nidd_syn_scan_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Distinct from SYNFlood; clean scan task.",
+      "caveat": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route."
+    },
+    {
+      "candidate_id": "5g_nidd_udp_scan_vs_benign",
+      "dataset": "5G-NIDD",
+      "year": 2022,
+      "status": "materialized_local_csvs",
+      "positive_class": "UDPScan",
+      "negative_class": "Benign",
+      "feature_count": 47,
+      "source_counts": {
+        "label_0_majority": 477737,
+        "label_1_attack": 15906
+      },
+      "ratio_floor": 30,
+      "train_class_rows": {
+        "label_0_majority": 15000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 15000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/5g_nidd_udp_scan_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Distinct from UDPFlood; good count and moderate split size.",
+      "caveat": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route."
+    },
+    {
+      "candidate_id": "edge_iiotset_vulnerability_scanner_vs_normal",
+      "dataset": "Edge-IIoTset",
+      "year": 2022,
+      "status": "materialized_local_csvs",
+      "positive_class": "Vulnerability_scanner_attack",
+      "negative_class": "Normal",
+      "feature_count": 61,
+      "source_counts": {
+        "label_0_majority": 1615643,
+        "label_1_attack": 50110
+      },
+      "ratio_floor": 32,
+      "train_class_rows": {
+        "label_0_majority": 16000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 16000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_vulnerability_scanner_vs_normal/candidate_manifest.json"
+      },
+      "notes": "Uses same staged Edge policy as modern7: drop only raw label metadata at staging.",
+      "caveat": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated."
+    },
+    {
+      "candidate_id": "edge_iiotset_backdoor_vs_normal",
+      "dataset": "Edge-IIoTset",
+      "year": 2022,
+      "status": "materialized_local_csvs",
+      "positive_class": "Backdoor_attack",
+      "negative_class": "Normal",
+      "feature_count": 61,
+      "source_counts": {
+        "label_0_majority": 1615643,
+        "label_1_attack": 24862
+      },
+      "ratio_floor": 64,
+      "train_class_rows": {
+        "label_0_majority": 32000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 32000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_backdoor_vs_normal/candidate_manifest.json"
+      },
+      "notes": "Valid non-flood task; same Kaggle mirror caveat as existing Edge tasks.",
+      "caveat": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated."
+    },
+    {
+      "candidate_id": "edge_iiotset_port_scanning_vs_normal",
+      "dataset": "Edge-IIoTset",
+      "year": 2022,
+      "status": "materialized_local_csvs",
+      "positive_class": "Port_Scanning_attack",
+      "negative_class": "Normal",
+      "feature_count": 61,
+      "source_counts": {
+        "label_0_majority": 1615643,
+        "label_1_attack": 22564
+      },
+      "ratio_floor": 71,
+      "train_class_rows": {
+        "label_0_majority": 35500,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 35500,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_port_scanning_vs_normal/candidate_manifest.json"
+      },
+      "notes": "Strong scan task; larger split but feasible.",
+      "caveat": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated."
+    },
+    {
+      "candidate_id": "rt_iot2022_nmap_udp_scan_vs_benign",
+      "dataset": "RT-IoT2022",
+      "year": 2023,
+      "status": "materialized_local_csvs",
+      "positive_class": "NMAP_UDP_SCAN",
+      "negative_class": "benign_control",
+      "feature_count": 83,
+      "source_counts": {
+        "label_0_majority": 12507,
+        "label_1_attack": 2590
+      },
+      "ratio_floor": 4,
+      "train_class_rows": {
+        "label_0_majority": 2000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 2000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_udp_scan_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Small but clean and ratio-valid."
+    },
+    {
+      "candidate_id": "rt_iot2022_nmap_xmas_tree_scan_vs_benign",
+      "dataset": "RT-IoT2022",
+      "year": 2023,
+      "status": "materialized_local_csvs",
+      "positive_class": "NMAP_XMAS_TREE_SCAN",
+      "negative_class": "benign_control",
+      "feature_count": 83,
+      "source_counts": {
+        "label_0_majority": 12507,
+        "label_1_attack": 2010
+      },
+      "ratio_floor": 6,
+      "train_class_rows": {
+        "label_0_majority": 3000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 3000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_xmas_tree_scan_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Replacement for a high-volume candidate; small, clean non-DoS scan task."
+    },
+    {
+      "candidate_id": "rt_iot2022_nmap_os_detection_vs_benign",
+      "dataset": "RT-IoT2022",
+      "year": 2023,
+      "status": "materialized_local_csvs",
+      "positive_class": "NMAP_OS_DETECTION",
+      "negative_class": "benign_control",
+      "feature_count": 83,
+      "source_counts": {
+        "label_0_majority": 12507,
+        "label_1_attack": 2000
+      },
+      "ratio_floor": 6,
+      "train_class_rows": {
+        "label_0_majority": 3000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 3000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_os_detection_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Replacement for a high-volume candidate; small, clean non-DoS scan task."
+    },
+    {
+      "candidate_id": "rt_iot2022_nmap_tcp_scan_vs_benign",
+      "dataset": "RT-IoT2022",
+      "year": 2023,
+      "status": "materialized_local_csvs",
+      "positive_class": "NMAP_TCP_scan",
+      "negative_class": "benign_control",
+      "feature_count": 83,
+      "source_counts": {
+        "label_0_majority": 12507,
+        "label_1_attack": 1002
+      },
+      "ratio_floor": 12,
+      "train_class_rows": {
+        "label_0_majority": 6000,
+        "label_1_attack": 500
+      },
+      "test_class_rows": {
+        "label_0_majority": 6000,
+        "label_1_attack": 500
+      },
+      "validated_no_train_test_overlap_by_source_row_index": true,
+      "paths": {
+        "full_binary": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/full_binary.csv",
+        "train": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/train.csv",
+        "test": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/test.csv",
+        "split_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/split_manifest.json",
+        "schema_profile": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/schema_profile.json",
+        "class_distribution": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/class_distribution.csv",
+        "candidate_manifest": "data/staging/modern_ids_pipeline_candidates/rt_iot2022_nmap_tcp_scan_vs_benign/candidate_manifest.json"
+      },
+      "notes": "Replacement for a high-volume candidate; technically valid but only 2 attack rows above the 1000-row floor."
+    }
+  ]
+}

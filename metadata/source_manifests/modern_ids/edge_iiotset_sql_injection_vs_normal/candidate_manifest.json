@@ -1,0 +1,47 @@
+{
+  "candidate_id": "edge_iiotset_sql_injection_vs_normal",
+  "dataset": "Edge-IIoTset",
+  "positive_class": "SQL_injection_attack",
+  "negative_class": "Normal",
+  "ratio_floor": 31,
+  "pipeline_status": "materialized_for_benchmark_definition",
+  "provisional_source_caveat": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+  "input_train_csv": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_sql_injection_vs_normal/train.csv",
+  "input_test_csv": "data/staging/modern_ids_pipeline_candidates/edge_iiotset_sql_injection_vs_normal/test.csv",
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_sql_injection_vs_normal/edge_iiotset_sql_injection_vs_normal_preservedratio_train500minority_15500majority_test500minority_15500majority_modern7.csv",
+  "split_metadata": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_sql_injection_vs_normal/split_metadata.json",
+  "train_counts": {
+    "0": 15500,
+    "1": 500
+  },
+  "test_counts": {
+    "0": 15500,
+    "1": 500
+  },
+  "train_test_source_row_index_overlap": 0,
+  "input_column_count": 63,
+  "output_column_count": 43,
+  "feature_count": 41,
+  "dropped_columns": [
+    "frame.time",
+    "ip.src_host",
+    "ip.dst_host",
+    "arp.dst.proto_ipv4",
+    "arp.src.proto_ipv4",
+    "http.file_data",
+    "http.request.uri.query",
+    "http.referer",
+    "http.request.full_uri",
+    "tcp.ack",
+    "tcp.ack_raw",
+    "tcp.checksum",
+    "tcp.options",
+    "tcp.payload",
+    "tcp.seq",
+    "tcp.srcport",
+    "udp.stream",
+    "mqtt.msg",
+    "mqtt.topic",
+    "mbtcp.trans_id"
+  ]
+}

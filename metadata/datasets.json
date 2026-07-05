@@ -1,0 +1,2289 @@
+{
+  "release_name": "dctabgan-ids-benchmark-datasets",
+  "release_created_utc": "2026-07-05T13:11:41+00:00",
+  "description": "Public-safe subset of the full 30-task cleaned, preserved-ratio, benchmark-ready IDS surface: 17 downloadable CSVs are redistributed and 13 tasks are metadata-only omissions for local reproduction.",
+  "active_benchmark_definition": "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+  "inherited_dataset_surface_definition": "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json",
+  "benchmark_collection": "benchmark_dataset_collection_v11_preserved_ratio_single_label_nodos_30d_clean_dct_gan_dose_matched_train500_test500",
+  "benchmark_version": "benchmark_preserved_ratio_single_label_train500_test500_2026-05-20_scope30_nodos_clean_dct_gan_dose_matched_operational",
+  "inherited_benchmark_version": "benchmark_preserved_ratio_single_label_train500_test500_2026-05-11_scope30_nodos_20method_linearsvm",
+  "dataset_count": 30,
+  "source_corpus_counts": {
+    "5G-NIDD": 3,
+    "CIC-IDS-2017": 4,
+    "CIC-UNSW-NB15": 5,
+    "CICIoMT2024Small mirror": 2,
+    "CSE-CIC-IDS2018": 4,
+    "Edge-IIoTset": 6,
+    "HIKARI-2021": 2,
+    "RT-IoT2022": 4
+  },
+  "label_semantics": {
+    "0": "majority benign/normal class",
+    "1": "minority attack class"
+  },
+  "split_policy": "Classwise temporal train/test split with test_size=0.5 and val_size=0.0, as specified by the benchmark definition. Downloadable CSVs are the full cleaned selected rows; omitted tasks retain the same count/split metadata and exact benchmark source paths for local reproduction. Benchmark runners reconstruct train/test splits from the definition and row order.",
+  "datasets": [
+    {
+      "ordinal": 1,
+      "task_key": "friday_bot",
+      "title": "CIC-IDS-2017 Friday Bot vs BENIGN",
+      "source_corpus": "CIC-IDS-2017",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Bot",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cic-ids-2017/friday_bot/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "friday_bot_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 48000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 48000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 96000,
+        "minority": 1000,
+        "rows": 97000
+      },
+      "actual_csv_label_counts": {
+        "0": 96000,
+        "1": 1000
+      },
+      "ratio_floor": 96,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Friday-WorkingHours-Morning.pcap_ISCX.csv.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/friday_bot_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cic-ids-2017/friday_bot/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: CIC policy pages appear to allow redistribution with citation, but this release does not relicense the upstream corpus and derivative-subset rights are not expressed as a standard open-data license.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cic-ids-2017/friday_bot/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/friday_bot_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 2,
+      "task_key": "thursday_web_attack_bruteforce",
+      "title": "CIC-IDS-2017 Thursday Web Attack - Brute Force vs BENIGN",
+      "source_corpus": "CIC-IDS-2017",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Web Attack - Brute Force",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cic-ids-2017/thursday_web_attack_bruteforce/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "thursday_web_attack_bruteforce_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 55500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 55500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 111000,
+        "minority": 1000,
+        "rows": 112000
+      },
+      "actual_csv_label_counts": {
+        "0": 111000,
+        "1": 1000
+      },
+      "ratio_floor": 111,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/thursday_web_attack_bruteforce_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cic-ids-2017/thursday_web_attack_bruteforce/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: CIC policy pages appear to allow redistribution with citation, but this release does not relicense the upstream corpus and derivative-subset rights are not expressed as a standard open-data license.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cic-ids-2017/thursday_web_attack_bruteforce/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/thursday_web_attack_bruteforce_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 3,
+      "task_key": "tuesday_ftp_patator",
+      "title": "CIC-IDS-2017 Tuesday FTP-Patator vs BENIGN",
+      "source_corpus": "CIC-IDS-2017",
+      "source_slice": "retained_non_dos",
+      "positive_class": "FTP-Patator",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cic-ids-2017/tuesday_ftp_patator/tuesday_ftp_patator_vs_benign_preservedratio_train500minority_27000benign_test500minority_27000benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/tuesday_ftp_patator_vs_benign_preservedratio_train500minority_27000benign_test500minority_27000benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "tuesday_ftp_patator_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 27000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 27000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 54000,
+        "minority": 1000,
+        "rows": 55000
+      },
+      "actual_csv_label_counts": {
+        "0": 54000,
+        "1": 1000
+      },
+      "ratio_floor": 54,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Tuesday-WorkingHours.pcap_ISCX.csv.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/tuesday_ftp_patator_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cic-ids-2017/tuesday_ftp_patator/tuesday_ftp_patator_vs_benign_preservedratio_train500minority_27000benign_test500minority_27000benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: CIC policy pages appear to allow redistribution with citation, but this release does not relicense the upstream corpus and derivative-subset rights are not expressed as a standard open-data license.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/tuesday_ftp_patator_vs_benign_preservedratio_train500minority_27000benign_test500minority_27000benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cic-ids-2017/tuesday_ftp_patator/tuesday_ftp_patator_vs_benign_preservedratio_train500minority_27000benign_test500minority_27000benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/tuesday_ftp_patator_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 4,
+      "task_key": "tuesday_ssh_patator",
+      "title": "CIC-IDS-2017 Tuesday SSH-Patator vs BENIGN",
+      "source_corpus": "CIC-IDS-2017",
+      "source_slice": "retained_non_dos",
+      "positive_class": "SSH-Patator",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cic-ids-2017/tuesday_ssh_patator/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "tuesday_ssh_patator_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 36500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 36500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 73000,
+        "minority": 1000,
+        "rows": 74000
+      },
+      "actual_csv_label_counts": {
+        "0": 73000,
+        "1": 1000
+      },
+      "ratio_floor": 73,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Tuesday-WorkingHours.pcap_ISCX.csv.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/tuesday_ssh_patator_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cic-ids-2017/tuesday_ssh_patator/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: CIC policy pages appear to allow redistribution with citation, but this release does not relicense the upstream corpus and derivative-subset rights are not expressed as a standard open-data license.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cic-ids-2017/tuesday_ssh_patator/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/tuesday_ssh_patator_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 5,
+      "task_key": "cse_cic_ids2018_bot",
+      "title": "CSE-CIC-IDS2018 Bot vs BENIGN",
+      "source_corpus": "CSE-CIC-IDS2018",
+      "source_slice": "retained_non_dos",
+      "positive_class": "N, o, r, m, a, l, i, z, e, d,  , l, a, b, e, l,  , e, q, u, a, l, s,  , ', b, o, t, ', .",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cse-cic-ids2018/cse_cic_ids2018_bot/cse_cic_ids2018_bot_vs_benign_preservedratio_train500minority_23500benign_test500minority_23500benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_bot_vs_benign_preservedratio_train500minority_23500benign_test500minority_23500benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "cse_cic_ids2018_bot_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 23500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 23500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 47000,
+        "minority": 1000,
+        "rows": 48000
+      },
+      "actual_csv_label_counts": {
+        "0": 47000,
+        "1": 1000
+      },
+      "ratio_floor": 47,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: All day-organized processed-flow CSVs in file order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_bot_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cse-cic-ids2018/cse_cic_ids2018_bot/cse_cic_ids2018_bot_vs_benign_preservedratio_train500minority_23500benign_test500minority_23500benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: UNB/CIC redistribution language appears broad, but this release does not relicense the upstream corpus.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_bot_vs_benign_preservedratio_train500minority_23500benign_test500minority_23500benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cse-cic-ids2018/cse_cic_ids2018_bot/cse_cic_ids2018_bot_vs_benign_preservedratio_train500minority_23500benign_test500minority_23500benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_bot_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 6,
+      "task_key": "cse_cic_ids2018_ftp_bruteforce",
+      "title": "CSE-CIC-IDS2018 FTP-BruteForce vs BENIGN",
+      "source_corpus": "CSE-CIC-IDS2018",
+      "source_slice": "retained_non_dos",
+      "positive_class": "N, o, r, m, a, l, i, z, e, d,  , l, a, b, e, l,  , e, q, u, a, l, s,  , ', f, t, p,  , b, r, u, t, e, f, o, r, c, e, ', .",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cse-cic-ids2018/cse_cic_ids2018_ftp_bruteforce/cse_cic_ids2018_ftp_bruteforce_vs_benign_preservedratio_train500minority_34500benign_test500minority_34500benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_ftp_bruteforce_vs_benign_preservedratio_train500minority_34500benign_test500minority_34500benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "cse_cic_ids2018_ftp_bruteforce_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 34500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 34500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 69000,
+        "minority": 1000,
+        "rows": 70000
+      },
+      "actual_csv_label_counts": {
+        "0": 69000,
+        "1": 1000
+      },
+      "ratio_floor": 69,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: All day-organized processed-flow CSVs in file order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_ftp_bruteforce_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cse-cic-ids2018/cse_cic_ids2018_ftp_bruteforce/cse_cic_ids2018_ftp_bruteforce_vs_benign_preservedratio_train500minority_34500benign_test500minority_34500benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: UNB/CIC redistribution language appears broad, but this release does not relicense the upstream corpus.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_ftp_bruteforce_vs_benign_preservedratio_train500minority_34500benign_test500minority_34500benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cse-cic-ids2018/cse_cic_ids2018_ftp_bruteforce/cse_cic_ids2018_ftp_bruteforce_vs_benign_preservedratio_train500minority_34500benign_test500minority_34500benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_ftp_bruteforce_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 7,
+      "task_key": "cse_cic_ids2018_infilteration",
+      "title": "CSE-CIC-IDS2018 Infilteration vs BENIGN",
+      "source_corpus": "CSE-CIC-IDS2018",
+      "source_slice": "retained_non_dos",
+      "positive_class": "N, o, r, m, a, l, i, z, e, d,  , l, a, b, e, l,  , e, q, u, a, l, s,  , ', i, n, f, i, l, t, e, r, a, t, i, o, n, ', .",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cse-cic-ids2018/cse_cic_ids2018_infilteration/cse_cic_ids2018_infilteration_vs_benign_preservedratio_train500minority_41500benign_test500minority_41500benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_infilteration_vs_benign_preservedratio_train500minority_41500benign_test500minority_41500benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "cse_cic_ids2018_infilteration_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 41500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 41500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 83000,
+        "minority": 1000,
+        "rows": 84000
+      },
+      "actual_csv_label_counts": {
+        "0": 83000,
+        "1": 1000
+      },
+      "ratio_floor": 83,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: All day-organized processed-flow CSVs in file order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_infilteration_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cse-cic-ids2018/cse_cic_ids2018_infilteration/cse_cic_ids2018_infilteration_vs_benign_preservedratio_train500minority_41500benign_test500minority_41500benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: UNB/CIC redistribution language appears broad, but this release does not relicense the upstream corpus.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_infilteration_vs_benign_preservedratio_train500minority_41500benign_test500minority_41500benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cse-cic-ids2018/cse_cic_ids2018_infilteration/cse_cic_ids2018_infilteration_vs_benign_preservedratio_train500minority_41500benign_test500minority_41500benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_infilteration_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 8,
+      "task_key": "cse_cic_ids2018_ssh_bruteforce",
+      "title": "CSE-CIC-IDS2018 SSH-Bruteforce vs BENIGN",
+      "source_corpus": "CSE-CIC-IDS2018",
+      "source_slice": "retained_non_dos",
+      "positive_class": "N, o, r, m, a, l, i, z, e, d,  , l, a, b, e, l,  , e, q, u, a, l, s,  , ', s, s, h,  , b, r, u, t, e, f, o, r, c, e, ', .",
+      "negative_class": "BENIGN",
+      "processed_csv": "data/cse-cic-ids2018/cse_cic_ids2018_ssh_bruteforce/cse_cic_ids2018_ssh_bruteforce_vs_benign_preservedratio_train500minority_35500benign_test500minority_35500benign_chrono.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_ssh_bruteforce_vs_benign_preservedratio_train500minority_35500benign_test500minority_35500benign_chrono.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_chrono",
+      "benchmark_code_prefix": "cse_cic_ids2018_ssh_bruteforce_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 35500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 35500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 71000,
+        "minority": 1000,
+        "rows": 72000
+      },
+      "actual_csv_label_counts": {
+        "0": 71000,
+        "1": 1000
+      },
+      "ratio_floor": 71,
+      "feature_count": 78,
+      "column_count": 80,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: All day-organized processed-flow CSVs in file order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_ssh_bruteforce_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/cse-cic-ids2018/cse_cic_ids2018_ssh_bruteforce/cse_cic_ids2018_ssh_bruteforce_vs_benign_preservedratio_train500minority_35500benign_test500minority_35500benign_chrono.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with conservative CIC provenance: UNB/CIC redistribution language appears broad, but this release does not relicense the upstream corpus.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_chrono/cse_cic_ids2018_ssh_bruteforce_vs_benign_preservedratio_train500minority_35500benign_test500minority_35500benign_chrono.csv",
+        "local_data_path_if_rebuilt": "data/cse-cic-ids2018/cse_cic_ids2018_ssh_bruteforce/cse_cic_ids2018_ssh_bruteforce_vs_benign_preservedratio_train500minority_35500benign_test500minority_35500benign_chrono.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cse_cic_ids2018_ssh_bruteforce_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 9,
+      "task_key": "cic_unsw_nb15_exploits",
+      "title": "CIC-UNSW-NB15 Exploits vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Exploits",
+      "negative_class": "BENIGN",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_exploits_vs_benign_preservedratio_train500minority_5500benign_test500minority_5500benign_fixed.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_fixed",
+      "benchmark_code_prefix": "cic_unsw_nb15_exploits_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 5500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 5500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 11000,
+        "minority": 1000,
+        "rows": 12000
+      },
+      "actual_csv_label_counts": {
+        "0": 11000,
+        "1": 1000
+      },
+      "ratio_floor": 11,
+      "feature_count": 76,
+      "column_count": 78,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Data.csv joined row-wise with Label.csv in original row order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_exploits_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_exploits_vs_benign_preservedratio_train500minority_5500benign_test500minority_5500benign_fixed.csv",
+        "local_data_path_if_rebuilt": "data/cic-unsw-nb15/cic_unsw_nb15_exploits/cic_unsw_nb15_exploits_vs_benign_preservedratio_train500minority_5500benign_test500minority_5500benign_fixed.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_exploits_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 10,
+      "task_key": "cic_unsw_nb15_fuzzers",
+      "title": "CIC-UNSW-NB15 Fuzzers vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Fuzzers",
+      "negative_class": "BENIGN",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_fuzzers_vs_benign_preservedratio_train500minority_6000benign_test500minority_6000benign_fixed.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_fixed",
+      "benchmark_code_prefix": "cic_unsw_nb15_fuzzers_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 6000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 6000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 12000,
+        "minority": 1000,
+        "rows": 13000
+      },
+      "actual_csv_label_counts": {
+        "0": 12000,
+        "1": 1000
+      },
+      "ratio_floor": 12,
+      "feature_count": 76,
+      "column_count": 78,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Data.csv joined row-wise with Label.csv in original row order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_fuzzers_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_fuzzers_vs_benign_preservedratio_train500minority_6000benign_test500minority_6000benign_fixed.csv",
+        "local_data_path_if_rebuilt": "data/cic-unsw-nb15/cic_unsw_nb15_fuzzers/cic_unsw_nb15_fuzzers_vs_benign_preservedratio_train500minority_6000benign_test500minority_6000benign_fixed.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_fuzzers_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 11,
+      "task_key": "cic_unsw_nb15_generic",
+      "title": "CIC-UNSW-NB15 Generic vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Generic",
+      "negative_class": "BENIGN",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_generic_vs_benign_preservedratio_train500minority_38500benign_test500minority_38500benign_fixed.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_fixed",
+      "benchmark_code_prefix": "cic_unsw_nb15_generic_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 38500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 38500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 77000,
+        "minority": 1000,
+        "rows": 78000
+      },
+      "actual_csv_label_counts": {
+        "0": 77000,
+        "1": 1000
+      },
+      "ratio_floor": 77,
+      "feature_count": 76,
+      "column_count": 78,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Data.csv joined row-wise with Label.csv in original row order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_generic_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_generic_vs_benign_preservedratio_train500minority_38500benign_test500minority_38500benign_fixed.csv",
+        "local_data_path_if_rebuilt": "data/cic-unsw-nb15/cic_unsw_nb15_generic/cic_unsw_nb15_generic_vs_benign_preservedratio_train500minority_38500benign_test500minority_38500benign_fixed.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_generic_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 12,
+      "task_key": "cic_unsw_nb15_reconnaissance",
+      "title": "CIC-UNSW-NB15 Reconnaissance vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Reconnaissance",
+      "negative_class": "BENIGN",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_reconnaissance_vs_benign_preservedratio_train500minority_10500benign_test500minority_10500benign_fixed.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_fixed",
+      "benchmark_code_prefix": "cic_unsw_nb15_reconnaissance_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 10500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 10500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 21000,
+        "minority": 1000,
+        "rows": 22000
+      },
+      "actual_csv_label_counts": {
+        "0": 21000,
+        "1": 1000
+      },
+      "ratio_floor": 21,
+      "feature_count": 76,
+      "column_count": 78,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Data.csv joined row-wise with Label.csv in original row order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_reconnaissance_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_reconnaissance_vs_benign_preservedratio_train500minority_10500benign_test500minority_10500benign_fixed.csv",
+        "local_data_path_if_rebuilt": "data/cic-unsw-nb15/cic_unsw_nb15_reconnaissance/cic_unsw_nb15_reconnaissance_vs_benign_preservedratio_train500minority_10500benign_test500minority_10500benign_fixed.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_reconnaissance_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 13,
+      "task_key": "cic_unsw_nb15_shellcode",
+      "title": "CIC-UNSW-NB15 Shellcode vs BENIGN",
+      "source_corpus": "CIC-UNSW-NB15",
+      "source_slice": "retained_non_dos",
+      "positive_class": "Shellcode",
+      "negative_class": "BENIGN",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_shellcode_vs_benign_preservedratio_train500minority_85000benign_test500minority_85000benign_fixed.csv",
+      "benchmark_subset": "train500_test500_single_label_25d_fixed",
+      "benchmark_code_prefix": "cic_unsw_nb15_shellcode_single25_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 85000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 85000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 170000,
+        "minority": 1000,
+        "rows": 171000
+      },
+      "actual_csv_label_counts": {
+        "0": 170000,
+        "1": 1000
+      },
+      "ratio_floor": 170,
+      "feature_count": 76,
+      "column_count": 78,
+      "train_test_source_row_index_overlap": null,
+      "dropped_columns": [],
+      "provenance_note": "Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source description: Data.csv joined row-wise with Label.csv in original row order..",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_shellcode_vs_benign.json",
+      "task_manifest_files": [],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_single_label_25d/tuning_fixed/cic_unsw_nb15_shellcode_vs_benign_preservedratio_train500minority_85000benign_test500minority_85000benign_fixed.csv",
+        "local_data_path_if_rebuilt": "data/cic-unsw-nb15/cic_unsw_nb15_shellcode/cic_unsw_nb15_shellcode_vs_benign_preservedratio_train500minority_85000benign_test500minority_85000benign_fixed.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py",
+        "source_manifest": "metadata/source_manifests/retained_single_label_25d/cic_unsw_nb15_shellcode_vs_benign.json",
+        "task_manifest_files": []
+      }
+    },
+    {
+      "ordinal": 14,
+      "task_key": "hikari_bruteforce_vs_benign",
+      "title": "HIKARI-2021 Bruteforce vs BENIGN",
+      "source_corpus": "HIKARI-2021",
+      "source_slice": "modern7",
+      "positive_class": "Bruteforce",
+      "negative_class": "benign_control",
+      "processed_csv": "data/hikari-2021/hikari_bruteforce_vs_benign/hikari_bruteforce_vs_benign_preservedratio_train500minority_43500majority_test500minority_43500majority_modern7.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/hikari_bruteforce_vs_benign/hikari_bruteforce_vs_benign_preservedratio_train500minority_43500majority_test500minority_43500majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "hikari_bruteforce_vs_benign_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 43500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 43500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 87000,
+        "minority": 1000,
+        "rows": 88000
+      },
+      "actual_csv_label_counts": {
+        "0": 87000,
+        "1": 1000
+      },
+      "ratio_floor": 87,
+      "feature_count": 81,
+      "column_count": 83,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/hikari_bruteforce_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/hikari_bruteforce_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/hikari-2021/hikari_bruteforce_vs_benign/hikari_bruteforce_vs_benign_preservedratio_train500minority_43500majority_test500minority_43500majority_modern7.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented CC BY 4.0 source route; upstream terms still govern use.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/hikari_bruteforce_vs_benign/hikari_bruteforce_vs_benign_preservedratio_train500minority_43500majority_test500minority_43500majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/hikari-2021/hikari_bruteforce_vs_benign/hikari_bruteforce_vs_benign_preservedratio_train500minority_43500majority_test500minority_43500majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/hikari_bruteforce_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/hikari_bruteforce_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 15,
+      "task_key": "hikari_probing_vs_benign",
+      "title": "HIKARI-2021 Probing vs BENIGN",
+      "source_corpus": "HIKARI-2021",
+      "source_slice": "modern7",
+      "positive_class": "Probing",
+      "negative_class": "benign_control",
+      "processed_csv": "data/hikari-2021/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "hikari_probing_vs_benign_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 11000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 11000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 22000,
+        "minority": 1000,
+        "rows": 23000
+      },
+      "actual_csv_label_counts": {
+        "0": 22000,
+        "1": 1000
+      },
+      "ratio_floor": 22,
+      "feature_count": 81,
+      "column_count": 83,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/hikari_probing_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/hikari_probing_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/hikari-2021/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented CC BY 4.0 source route; upstream terms still govern use.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/hikari-2021/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/hikari_probing_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/hikari_probing_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 16,
+      "task_key": "ciciomt2024_arp_spoofing_vs_benign",
+      "title": "CICIoMT2024Small mirror ARP Spoofing vs BENIGN",
+      "source_corpus": "CICIoMT2024Small mirror",
+      "source_slice": "modern7",
+      "positive_class": "ARP Spoofing",
+      "negative_class": "Benign",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/ciciomt2024_arp_spoofing_vs_benign/ciciomt2024_arp_spoofing_vs_benign_preservedratio_train500minority_12500majority_test500minority_12500majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "ciciomt2024_arp_spoofing_vs_benign_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 12500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 12500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 25000,
+        "minority": 1000,
+        "rows": 26000
+      },
+      "actual_csv_label_counts": {
+        "0": 25000,
+        "1": 1000
+      },
+      "ratio_floor": 25,
+      "feature_count": 79,
+      "column_count": 81,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "Materialized from public Hugging Face CICIoMT2024Small mirror; official UNB endpoint remains registration-gated.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/split_metadata.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/access_status.md"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/ciciomt2024_arp_spoofing_vs_benign/ciciomt2024_arp_spoofing_vs_benign_preservedratio_train500minority_12500majority_test500minority_12500majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/ciciomt2024small-mirror/ciciomt2024_arp_spoofing_vs_benign/ciciomt2024_arp_spoofing_vs_benign_preservedratio_train500minority_12500majority_test500minority_12500majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/split_metadata.json",
+          "metadata/source_manifests/modern_ids/ciciomt2024_arp_spoofing_vs_benign/access_status.md"
+        ]
+      }
+    },
+    {
+      "ordinal": 17,
+      "task_key": "ciciomt2024_mqtt_malformed_data_vs_benign",
+      "title": "CICIoMT2024Small mirror MQTT Malformed Data vs BENIGN",
+      "source_corpus": "CICIoMT2024Small mirror",
+      "source_slice": "modern7",
+      "positive_class": "MQTT Malformed Data",
+      "negative_class": "Benign",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/ciciomt2024_mqtt_malformed_data_vs_benign/ciciomt2024_mqtt_malformed_data_vs_benign_preservedratio_train500minority_8500majority_test500minority_8500majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "ciciomt2024_mqtt_malformed_data_vs_benign_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 8500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 8500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 17000,
+        "minority": 1000,
+        "rows": 18000
+      },
+      "actual_csv_label_counts": {
+        "0": 17000,
+        "1": 1000
+      },
+      "ratio_floor": 17,
+      "feature_count": 79,
+      "column_count": 81,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "Materialized from public Hugging Face CICIoMT2024Small mirror; official UNB endpoint remains registration-gated.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/split_metadata.json",
+        "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/access_status.md"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames.",
+      "omission_caveat": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/ciciomt2024_mqtt_malformed_data_vs_benign/ciciomt2024_mqtt_malformed_data_vs_benign_preservedratio_train500minority_8500majority_test500minority_8500majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/ciciomt2024small-mirror/ciciomt2024_mqtt_malformed_data_vs_benign/ciciomt2024_mqtt_malformed_data_vs_benign_preservedratio_train500minority_8500majority_test500minority_8500majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/split_metadata.json",
+          "metadata/source_manifests/modern_ids/ciciomt2024_mqtt_malformed_data_vs_benign/access_status.md"
+        ]
+      }
+    },
+    {
+      "ordinal": 18,
+      "task_key": "edge_iiotset_sql_injection_vs_normal",
+      "title": "Edge-IIoTset SQL injection vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "source_slice": "modern7",
+      "positive_class": "SQL_injection_attack",
+      "negative_class": "Normal",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_sql_injection_vs_normal/edge_iiotset_sql_injection_vs_normal_preservedratio_train500minority_15500majority_test500minority_15500majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "edge_iiotset_sql_injection_vs_normal_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 15500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 15500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 31000,
+        "minority": 1000,
+        "rows": 32000
+      },
+      "actual_csv_label_counts": {
+        "0": 31000,
+        "1": 1000
+      },
+      "ratio_floor": 31,
+      "feature_count": 41,
+      "column_count": 43,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "frame.time",
+        "ip.src_host",
+        "ip.dst_host",
+        "arp.dst.proto_ipv4",
+        "arp.src.proto_ipv4",
+        "http.file_data",
+        "http.request.uri.query",
+        "http.referer",
+        "http.request.full_uri",
+        "tcp.ack",
+        "tcp.ack_raw",
+        "tcp.checksum",
+        "tcp.options",
+        "tcp.payload",
+        "tcp.seq",
+        "tcp.srcport",
+        "udp.stream",
+        "mqtt.msg",
+        "mqtt.topic",
+        "mbtcp.trans_id"
+      ],
+      "provenance_note": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_sql_injection_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_sql_injection_vs_normal/split_metadata.json"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "omission_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_sql_injection_vs_normal/edge_iiotset_sql_injection_vs_normal_preservedratio_train500minority_15500majority_test500minority_15500majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/edge-iiotset/edge_iiotset_sql_injection_vs_normal/edge_iiotset_sql_injection_vs_normal_preservedratio_train500minority_15500majority_test500minority_15500majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/edge_iiotset_sql_injection_vs_normal/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/edge_iiotset_sql_injection_vs_normal/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 19,
+      "task_key": "edge_iiotset_password_vs_normal",
+      "title": "Edge-IIoTset Password vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "source_slice": "modern7",
+      "positive_class": "Password_attack",
+      "negative_class": "Normal",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_password_vs_normal/edge_iiotset_password_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "edge_iiotset_password_vs_normal_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 32000,
+        "minority": 1000,
+        "rows": 33000
+      },
+      "actual_csv_label_counts": {
+        "0": 32000,
+        "1": 1000
+      },
+      "ratio_floor": 32,
+      "feature_count": 41,
+      "column_count": 43,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "frame.time",
+        "ip.src_host",
+        "ip.dst_host",
+        "arp.dst.proto_ipv4",
+        "arp.src.proto_ipv4",
+        "http.file_data",
+        "http.request.uri.query",
+        "http.referer",
+        "http.request.full_uri",
+        "tcp.ack",
+        "tcp.ack_raw",
+        "tcp.checksum",
+        "tcp.options",
+        "tcp.payload",
+        "tcp.seq",
+        "tcp.srcport",
+        "udp.stream",
+        "mqtt.msg",
+        "mqtt.topic",
+        "mbtcp.trans_id"
+      ],
+      "provenance_note": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_password_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_password_vs_normal/split_metadata.json"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "omission_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_password_vs_normal/edge_iiotset_password_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/edge-iiotset/edge_iiotset_password_vs_normal/edge_iiotset_password_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/edge_iiotset_password_vs_normal/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/edge_iiotset_password_vs_normal/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 20,
+      "task_key": "edge_iiotset_uploading_vs_normal",
+      "title": "Edge-IIoTset Uploading vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "source_slice": "modern7",
+      "positive_class": "Uploading_attack",
+      "negative_class": "Normal",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_uploading_vs_normal/edge_iiotset_uploading_vs_normal_preservedratio_train500minority_21000majority_test500minority_21000majority_modern7.csv",
+      "benchmark_subset": "train500_test500_modern_ids_7d",
+      "benchmark_code_prefix": "edge_iiotset_uploading_vs_normal_modern7_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 21000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 21000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 42000,
+        "minority": 1000,
+        "rows": 43000
+      },
+      "actual_csv_label_counts": {
+        "0": 42000,
+        "1": 1000
+      },
+      "ratio_floor": 42,
+      "feature_count": 41,
+      "column_count": 43,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "frame.time",
+        "ip.src_host",
+        "ip.dst_host",
+        "arp.dst.proto_ipv4",
+        "arp.src.proto_ipv4",
+        "http.file_data",
+        "http.request.uri.query",
+        "http.referer",
+        "http.request.full_uri",
+        "tcp.ack",
+        "tcp.ack_raw",
+        "tcp.checksum",
+        "tcp.options",
+        "tcp.payload",
+        "tcp.seq",
+        "tcp.srcport",
+        "udp.stream",
+        "mqtt.msg",
+        "mqtt.topic",
+        "mbtcp.trans_id"
+      ],
+      "provenance_note": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+      "risk_note": "",
+      "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_uploading_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_uploading_vs_normal/split_metadata.json"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "omission_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_7d/edge_iiotset_uploading_vs_normal/edge_iiotset_uploading_vs_normal_preservedratio_train500minority_21000majority_test500minority_21000majority_modern7.csv",
+        "local_data_path_if_rebuilt": "data/edge-iiotset/edge_iiotset_uploading_vs_normal/edge_iiotset_uploading_vs_normal_preservedratio_train500minority_21000majority_test500minority_21000majority_modern7.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/modern7_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/edge_iiotset_uploading_vs_normal/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/edge_iiotset_uploading_vs_normal/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 21,
+      "task_key": "5g_nidd_tcp_connect_scan_vs_benign",
+      "title": "5G-NIDD TCPConnectScan vs BENIGN",
+      "source_corpus": "5G-NIDD",
+      "source_slice": "additional10",
+      "positive_class": "TCPConnectScan",
+      "negative_class": "Benign",
+      "processed_csv": "data/5g-nidd/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "5g_nidd_tcp_connect_scan_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 11500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 11500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 23000,
+        "minority": 1000,
+        "rows": 24000
+      },
+      "actual_csv_label_counts": {
+        "0": 23000,
+        "1": 1000
+      },
+      "ratio_floor": 23,
+      "feature_count": 44,
+      "column_count": 46,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "Offset",
+        "SrcTCPBase",
+        "DstTCPBase"
+      ],
+      "provenance_note": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route.",
+      "risk_note": "5G Offset and TCP sequence-base artifacts filtered at benchmark materialization; remaining low-card categorical handling should be monitored.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/5g_nidd_tcp_connect_scan_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/5g_nidd_tcp_connect_scan_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/5g-nidd/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented open Fairdata CC BY 4.0 route; the official IEEE DataPort route remains gated.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/5g-nidd/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/5g_nidd_tcp_connect_scan_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/5g_nidd_tcp_connect_scan_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 22,
+      "task_key": "5g_nidd_syn_scan_vs_benign",
+      "title": "5G-NIDD SYNScan vs BENIGN",
+      "source_corpus": "5G-NIDD",
+      "source_slice": "additional10",
+      "positive_class": "SYNScan",
+      "negative_class": "Benign",
+      "processed_csv": "data/5g-nidd/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "5g_nidd_syn_scan_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 11500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 11500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 23000,
+        "minority": 1000,
+        "rows": 24000
+      },
+      "actual_csv_label_counts": {
+        "0": 23000,
+        "1": 1000
+      },
+      "ratio_floor": 23,
+      "feature_count": 44,
+      "column_count": 46,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "Offset",
+        "SrcTCPBase",
+        "DstTCPBase"
+      ],
+      "provenance_note": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route.",
+      "risk_note": "5G Offset and TCP sequence-base artifacts filtered at benchmark materialization; remaining low-card categorical handling should be monitored.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/5g_nidd_syn_scan_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/5g_nidd_syn_scan_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/5g-nidd/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented open Fairdata CC BY 4.0 route; the official IEEE DataPort route remains gated.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/5g-nidd/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/5g_nidd_syn_scan_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/5g_nidd_syn_scan_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 23,
+      "task_key": "5g_nidd_udp_scan_vs_benign",
+      "title": "5G-NIDD UDPScan vs BENIGN",
+      "source_corpus": "5G-NIDD",
+      "source_slice": "additional10",
+      "positive_class": "UDPScan",
+      "negative_class": "Benign",
+      "processed_csv": "data/5g-nidd/5g_nidd_udp_scan_vs_benign/5g_nidd_udp_scan_vs_benign_preservedratio_train500minority_15000majority_test500minority_15000majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_udp_scan_vs_benign/5g_nidd_udp_scan_vs_benign_preservedratio_train500minority_15000majority_test500minority_15000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "5g_nidd_udp_scan_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 15000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 15000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 30000,
+        "minority": 1000,
+        "rows": 31000
+      },
+      "actual_csv_label_counts": {
+        "0": 30000,
+        "1": 1000
+      },
+      "ratio_floor": 30,
+      "feature_count": 44,
+      "column_count": 46,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "Offset",
+        "SrcTCPBase",
+        "DstTCPBase"
+      ],
+      "provenance_note": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route.",
+      "risk_note": "5G Offset and TCP sequence-base artifacts filtered at benchmark materialization; remaining low-card categorical handling should be monitored.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/5g_nidd_udp_scan_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/5g_nidd_udp_scan_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/5g-nidd/5g_nidd_udp_scan_vs_benign/5g_nidd_udp_scan_vs_benign_preservedratio_train500minority_15000majority_test500minority_15000majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented open Fairdata CC BY 4.0 route; the official IEEE DataPort route remains gated.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_udp_scan_vs_benign/5g_nidd_udp_scan_vs_benign_preservedratio_train500minority_15000majority_test500minority_15000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/5g-nidd/5g_nidd_udp_scan_vs_benign/5g_nidd_udp_scan_vs_benign_preservedratio_train500minority_15000majority_test500minority_15000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/5g_nidd_udp_scan_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/5g_nidd_udp_scan_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 24,
+      "task_key": "edge_iiotset_vulnerability_scanner_vs_normal",
+      "title": "Edge-IIoTset Vulnerability scanner vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "source_slice": "additional10",
+      "positive_class": "Vulnerability_scanner_attack",
+      "negative_class": "Normal",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_vulnerability_scanner_vs_normal/edge_iiotset_vulnerability_scanner_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "edge_iiotset_vulnerability_scanner_vs_normal_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 16000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 32000,
+        "minority": 1000,
+        "rows": 33000
+      },
+      "actual_csv_label_counts": {
+        "0": 32000,
+        "1": 1000
+      },
+      "ratio_floor": 32,
+      "feature_count": 41,
+      "column_count": 43,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "frame.time",
+        "ip.src_host",
+        "ip.dst_host",
+        "arp.dst.proto_ipv4",
+        "arp.src.proto_ipv4",
+        "http.file_data",
+        "http.request.uri.query",
+        "http.referer",
+        "http.request.full_uri",
+        "tcp.ack",
+        "tcp.ack_raw",
+        "tcp.checksum",
+        "tcp.options",
+        "tcp.payload",
+        "tcp.seq",
+        "tcp.srcport",
+        "udp.stream",
+        "mqtt.msg",
+        "mqtt.topic",
+        "mbtcp.trans_id"
+      ],
+      "provenance_note": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+      "risk_note": "High-cardinality Edge timestamp/IP/payload/text/sequence artifacts filtered at benchmark materialization; remaining risk is moderate runtime and retained destination-port cardinality.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_vulnerability_scanner_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_vulnerability_scanner_vs_normal/split_metadata.json"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "omission_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_vulnerability_scanner_vs_normal/edge_iiotset_vulnerability_scanner_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/edge-iiotset/edge_iiotset_vulnerability_scanner_vs_normal/edge_iiotset_vulnerability_scanner_vs_normal_preservedratio_train500minority_16000majority_test500minority_16000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/edge_iiotset_vulnerability_scanner_vs_normal/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/edge_iiotset_vulnerability_scanner_vs_normal/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 25,
+      "task_key": "edge_iiotset_backdoor_vs_normal",
+      "title": "Edge-IIoTset Backdoor vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "source_slice": "additional10",
+      "positive_class": "Backdoor_attack",
+      "negative_class": "Normal",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_backdoor_vs_normal/edge_iiotset_backdoor_vs_normal_preservedratio_train500minority_32000majority_test500minority_32000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "edge_iiotset_backdoor_vs_normal_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 32000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 32000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 64000,
+        "minority": 1000,
+        "rows": 65000
+      },
+      "actual_csv_label_counts": {
+        "0": 64000,
+        "1": 1000
+      },
+      "ratio_floor": 64,
+      "feature_count": 41,
+      "column_count": 43,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "frame.time",
+        "ip.src_host",
+        "ip.dst_host",
+        "arp.dst.proto_ipv4",
+        "arp.src.proto_ipv4",
+        "http.file_data",
+        "http.request.uri.query",
+        "http.referer",
+        "http.request.full_uri",
+        "tcp.ack",
+        "tcp.ack_raw",
+        "tcp.checksum",
+        "tcp.options",
+        "tcp.payload",
+        "tcp.seq",
+        "tcp.srcport",
+        "udp.stream",
+        "mqtt.msg",
+        "mqtt.topic",
+        "mbtcp.trans_id"
+      ],
+      "provenance_note": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+      "risk_note": "High-cardinality Edge timestamp/IP/payload/text/sequence artifacts filtered at benchmark materialization; remaining risk is moderate runtime and retained destination-port cardinality.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_backdoor_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_backdoor_vs_normal/split_metadata.json"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "omission_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_backdoor_vs_normal/edge_iiotset_backdoor_vs_normal_preservedratio_train500minority_32000majority_test500minority_32000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/edge-iiotset/edge_iiotset_backdoor_vs_normal/edge_iiotset_backdoor_vs_normal_preservedratio_train500minority_32000majority_test500minority_32000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/edge_iiotset_backdoor_vs_normal/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/edge_iiotset_backdoor_vs_normal/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 26,
+      "task_key": "edge_iiotset_port_scanning_vs_normal",
+      "title": "Edge-IIoTset Port Scanning vs NORMAL",
+      "source_corpus": "Edge-IIoTset",
+      "source_slice": "additional10",
+      "positive_class": "Port_Scanning_attack",
+      "negative_class": "Normal",
+      "processed_csv": null,
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_port_scanning_vs_normal/edge_iiotset_port_scanning_vs_normal_preservedratio_train500minority_35500majority_test500minority_35500majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "edge_iiotset_port_scanning_vs_normal_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 35500,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 35500,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 71000,
+        "minority": 1000,
+        "rows": 72000
+      },
+      "actual_csv_label_counts": {
+        "0": 71000,
+        "1": 1000
+      },
+      "ratio_floor": 71,
+      "feature_count": 41,
+      "column_count": 43,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [
+        "frame.time",
+        "ip.src_host",
+        "ip.dst_host",
+        "arp.dst.proto_ipv4",
+        "arp.src.proto_ipv4",
+        "http.file_data",
+        "http.request.uri.query",
+        "http.referer",
+        "http.request.full_uri",
+        "tcp.ack",
+        "tcp.ack_raw",
+        "tcp.checksum",
+        "tcp.options",
+        "tcp.payload",
+        "tcp.seq",
+        "tcp.srcport",
+        "udp.stream",
+        "mqtt.msg",
+        "mqtt.topic",
+        "mbtcp.trans_id"
+      ],
+      "provenance_note": "Materialized from public Kaggle mirror; official IEEE DataPort remains login/subscription-gated.",
+      "risk_note": "High-cardinality Edge timestamp/IP/payload/text/sequence artifacts filtered at benchmark materialization; remaining risk is moderate runtime and retained destination-port cardinality.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/edge_iiotset_port_scanning_vs_normal/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/edge_iiotset_port_scanning_vs_normal/split_metadata.json"
+      ],
+      "downloadable": false,
+      "public_bundle_status": "omitted_not_redistributed",
+      "public_csv": null,
+      "omission_reason": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "omission_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "redistribution_caveat": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/edge_iiotset_port_scanning_vs_normal/edge_iiotset_port_scanning_vs_normal_preservedratio_train500minority_35500majority_test500minority_35500majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/edge-iiotset/edge_iiotset_port_scanning_vs_normal/edge_iiotset_port_scanning_vs_normal_preservedratio_train500minority_35500majority_test500minority_35500majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/edge_iiotset_port_scanning_vs_normal/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/edge_iiotset_port_scanning_vs_normal/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 27,
+      "task_key": "rt_iot2022_nmap_udp_scan_vs_benign",
+      "title": "RT-IoT2022 NMAP UDP SCAN vs BENIGN",
+      "source_corpus": "RT-IoT2022",
+      "source_slice": "additional10",
+      "positive_class": "NMAP_UDP_SCAN",
+      "negative_class": "benign_control",
+      "processed_csv": "data/rt-iot2022/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "rt_iot2022_nmap_udp_scan_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 2000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 2000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 4000,
+        "minority": 1000,
+        "rows": 5000
+      },
+      "actual_csv_label_counts": {
+        "0": 4000,
+        "1": 1000
+      },
+      "ratio_floor": 4,
+      "feature_count": 83,
+      "column_count": 85,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "",
+      "risk_note": "No extra materialization drops; remaining risk is small train size relative to feature count and retained port-like fields.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_udp_scan_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_udp_scan_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/rt-iot2022/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented UCI CC BY 4.0 route; upstream terms still govern use.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/rt-iot2022/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_udp_scan_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_udp_scan_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 28,
+      "task_key": "rt_iot2022_nmap_xmas_tree_scan_vs_benign",
+      "title": "RT-IoT2022 NMAP XMAS TREE SCAN vs BENIGN",
+      "source_corpus": "RT-IoT2022",
+      "source_slice": "additional10",
+      "positive_class": "NMAP_XMAS_TREE_SCAN",
+      "negative_class": "benign_control",
+      "processed_csv": "data/rt-iot2022/rt_iot2022_nmap_xmas_tree_scan_vs_benign/rt_iot2022_nmap_xmas_tree_scan_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_xmas_tree_scan_vs_benign/rt_iot2022_nmap_xmas_tree_scan_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "rt_iot2022_nmap_xmas_tree_scan_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 3000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 3000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 6000,
+        "minority": 1000,
+        "rows": 7000
+      },
+      "actual_csv_label_counts": {
+        "0": 6000,
+        "1": 1000
+      },
+      "ratio_floor": 6,
+      "feature_count": 83,
+      "column_count": 85,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "",
+      "risk_note": "No extra materialization drops; remaining risk is small train size relative to feature count and retained port-like fields.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_xmas_tree_scan_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_xmas_tree_scan_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/rt-iot2022/rt_iot2022_nmap_xmas_tree_scan_vs_benign/rt_iot2022_nmap_xmas_tree_scan_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented UCI CC BY 4.0 route; upstream terms still govern use.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_xmas_tree_scan_vs_benign/rt_iot2022_nmap_xmas_tree_scan_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/rt-iot2022/rt_iot2022_nmap_xmas_tree_scan_vs_benign/rt_iot2022_nmap_xmas_tree_scan_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_xmas_tree_scan_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_xmas_tree_scan_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 29,
+      "task_key": "rt_iot2022_nmap_os_detection_vs_benign",
+      "title": "RT-IoT2022 NMAP OS DETECTION vs BENIGN",
+      "source_corpus": "RT-IoT2022",
+      "source_slice": "additional10",
+      "positive_class": "NMAP_OS_DETECTION",
+      "negative_class": "benign_control",
+      "processed_csv": "data/rt-iot2022/rt_iot2022_nmap_os_detection_vs_benign/rt_iot2022_nmap_os_detection_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_os_detection_vs_benign/rt_iot2022_nmap_os_detection_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "rt_iot2022_nmap_os_detection_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 3000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 3000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 6000,
+        "minority": 1000,
+        "rows": 7000
+      },
+      "actual_csv_label_counts": {
+        "0": 6000,
+        "1": 1000
+      },
+      "ratio_floor": 6,
+      "feature_count": 83,
+      "column_count": 85,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "",
+      "risk_note": "No extra materialization drops; remaining risk is small train size relative to feature count and retained port-like fields.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_os_detection_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_os_detection_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/rt-iot2022/rt_iot2022_nmap_os_detection_vs_benign/rt_iot2022_nmap_os_detection_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented UCI CC BY 4.0 route; upstream terms still govern use.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_os_detection_vs_benign/rt_iot2022_nmap_os_detection_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/rt-iot2022/rt_iot2022_nmap_os_detection_vs_benign/rt_iot2022_nmap_os_detection_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_os_detection_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_os_detection_vs_benign/split_metadata.json"
+        ]
+      }
+    },
+    {
+      "ordinal": 30,
+      "task_key": "rt_iot2022_nmap_tcp_scan_vs_benign",
+      "title": "RT-IoT2022 NMAP TCP scan vs BENIGN",
+      "source_corpus": "RT-IoT2022",
+      "source_slice": "additional10",
+      "positive_class": "NMAP_TCP_scan",
+      "negative_class": "benign_control",
+      "processed_csv": "data/rt-iot2022/rt_iot2022_nmap_tcp_scan_vs_benign/rt_iot2022_nmap_tcp_scan_vs_benign_preservedratio_train500minority_6000majority_test500minority_6000majority_additional10.csv",
+      "source_benchmark_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_tcp_scan_vs_benign/rt_iot2022_nmap_tcp_scan_vs_benign_preservedratio_train500minority_6000majority_test500minority_6000majority_additional10.csv",
+      "benchmark_subset": "train500_test500_modern_ids_additional10",
+      "benchmark_code_prefix": "rt_iot2022_nmap_tcp_scan_vs_benign_additional10_train500_test500",
+      "split_mode": "classwise_temporal",
+      "test_size": 0.5,
+      "val_size": 0.0,
+      "label_column": "label",
+      "majority_label": 0,
+      "minority_label": 1,
+      "train_counts": {
+        "majority": 6000,
+        "minority": 500
+      },
+      "test_counts": {
+        "majority": 6000,
+        "minority": 500
+      },
+      "total_counts": {
+        "majority": 12000,
+        "minority": 1000,
+        "rows": 13000
+      },
+      "actual_csv_label_counts": {
+        "0": 12000,
+        "1": 1000
+      },
+      "ratio_floor": 12,
+      "feature_count": 83,
+      "column_count": 85,
+      "train_test_source_row_index_overlap": 0,
+      "dropped_columns": [],
+      "provenance_note": "",
+      "risk_note": "No extra materialization drops; remaining risk is attack support just above the 1000-row floor plus retained port-like fields.",
+      "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+      "task_manifest_files": [
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_tcp_scan_vs_benign/candidate_manifest.json",
+        "metadata/source_manifests/modern_ids/rt_iot2022_nmap_tcp_scan_vs_benign/split_metadata.json"
+      ],
+      "downloadable": true,
+      "public_bundle_status": "downloadable_csv_included",
+      "public_csv": "data/rt-iot2022/rt_iot2022_nmap_tcp_scan_vs_benign/rt_iot2022_nmap_tcp_scan_vs_benign_preservedratio_train500minority_6000majority_test500minority_6000majority_additional10.csv",
+      "omission_reason": null,
+      "omission_caveat": null,
+      "redistribution_caveat": "Included with attribution caveat under the documented UCI CC BY 4.0 route; upstream terms still govern use.",
+      "local_reproduction": {
+        "benchmark_repo_processed_csv": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/rt_iot2022_nmap_tcp_scan_vs_benign/rt_iot2022_nmap_tcp_scan_vs_benign_preservedratio_train500minority_6000majority_test500minority_6000majority_additional10.csv",
+        "local_data_path_if_rebuilt": "data/rt-iot2022/rt_iot2022_nmap_tcp_scan_vs_benign/rt_iot2022_nmap_tcp_scan_vs_benign_preservedratio_train500minority_6000majority_test500minority_6000majority_additional10.csv",
+        "benchmark_repo_definition_paths": [
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "research/docs/dctabgan_iteration_map/planning_docs/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "mirrored_definition_paths": [
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json",
+          "metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"
+        ],
+        "rebuild_script": "python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py",
+        "source_manifest": "metadata/source_manifests/materialization/additional10_materialization_manifest.json",
+        "task_manifest_files": [
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_tcp_scan_vs_benign/candidate_manifest.json",
+          "metadata/source_manifests/modern_ids/rt_iot2022_nmap_tcp_scan_vs_benign/split_metadata.json"
+        ]
+      }
+    }
+  ],
+  "downloadable_dataset_count": 17,
+  "omitted_dataset_count": 13,
+  "downloadable_source_corpus_counts": {
+    "CIC-IDS-2017": 4,
+    "CSE-CIC-IDS2018": 4,
+    "HIKARI-2021": 2,
+    "5G-NIDD": 3,
+    "RT-IoT2022": 4
+  },
+  "omitted_source_corpus_counts": {
+    "Edge-IIoTset": 6,
+    "CIC-UNSW-NB15": 5,
+    "CICIoMT2024Small mirror": 2
+  },
+  "public_release_policy": {
+    "full_benchmark_task_count": 30,
+    "downloadable_csv_count": 17,
+    "omitted_not_redistributed_count": 13,
+    "downloadable_corpora": {
+      "CIC-IDS-2017": 4,
+      "CSE-CIC-IDS2018": 4,
+      "HIKARI-2021": 2,
+      "5G-NIDD": 3,
+      "RT-IoT2022": 4
+    },
+    "omitted_corpora": {
+      "Edge-IIoTset": 6,
+      "CIC-UNSW-NB15": 5,
+      "CICIoMT2024Small mirror": 2
+    },
+    "omission_reasons_by_corpus": {
+      "Edge-IIoTset": "Omitted from downloadable CSV bundle for a conservative public release posture: the official IEEE DataPort route is gated and the public mirror terms carry noncommercial/share-alike obligations that should not be overclaimed for a general public bundle.",
+      "CIC-UNSW-NB15": "Omitted from downloadable CSV bundle because academic use and citation requirements are clear, but redistribution of repackaged or derived benchmark subsets was not explicitly verified from the documented source route.",
+      "CICIoMT2024Small mirror": "Omitted from downloadable CSV bundle because the benchmark used a public small-artifact mirror rather than an official open Small release; mirror-specific license terms were not clearly exposed and labels were assigned from filenames."
+    },
+    "license_position": "This repository does not relicense upstream IDS corpora. Downloadable CSVs are included only where the documented release posture is comparatively stronger; omitted tasks remain documented for local reproduction from the benchmark repo and user-controlled source access."
+  }
+}

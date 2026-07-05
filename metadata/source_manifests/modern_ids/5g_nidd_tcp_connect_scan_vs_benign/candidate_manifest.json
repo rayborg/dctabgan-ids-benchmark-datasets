@@ -1,0 +1,33 @@
+{
+  "candidate_id": "5g_nidd_tcp_connect_scan_vs_benign",
+  "dataset": "5G-NIDD",
+  "year": 2022,
+  "positive_class": "TCPConnectScan",
+  "negative_class": "Benign",
+  "ratio_floor": 23,
+  "pipeline_status": "materialized_for_benchmark_definition",
+  "provisional_source_caveat": "Official IEEE DataPort route remains gated; local artifact was sourced from the open Fairdata route.",
+  "input_train_csv": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/train.csv",
+  "input_test_csv": "data/staging/modern_ids_pipeline_candidates/5g_nidd_tcp_connect_scan_vs_benign/test.csv",
+  "output_dataset": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
+  "split_metadata": "data/preserved_ratio_experiments/processed/train500_test500_modern_ids_additional10/5g_nidd_tcp_connect_scan_vs_benign/split_metadata.json",
+  "train_counts": {
+    "0": 11500,
+    "1": 500
+  },
+  "test_counts": {
+    "0": 11500,
+    "1": 500
+  },
+  "train_test_source_row_index_overlap": 0,
+  "input_column_count": 49,
+  "output_column_count": 46,
+  "feature_count": 44,
+  "dropped_columns": [
+    "Offset",
+    "SrcTCPBase",
+    "DstTCPBase"
+  ],
+  "configured_drop_columns_missing": [],
+  "risk_note": "5G Offset and TCP sequence-base artifacts filtered at benchmark materialization; remaining low-card categorical handling should be monitored."
+}
