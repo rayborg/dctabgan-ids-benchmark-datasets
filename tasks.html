@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All 30 Benchmark Tasks</title>
+  <meta name="description" content="Task-by-task descriptions, counts, availability, and provenance for all 30 DCTABGAN IDS benchmark datasets.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="tasks.html" aria-current="page">Tasks</a>
+        <a href="download.html">Download</a>
+        <a href="recreate.html">Recreate Omitted</a>
+        <a href="benchmark.html">Replicate Benchmark</a>
+        <a href="compare.html">Compare Your Method</a>
+        <a href="licensing.html">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-intro">
+      <div class="eyebrow">Task-by-task benchmark catalog</div>
+      <h1>What each of the 30 IDS benchmark tasks contains</h1>
+      <p>This page expands the benchmark metadata into one user-facing row per task. Counts, availability status, source paths, split mode, and provenance wording are taken from <code>metadata/datasets.csv</code>, <code>metadata/datasets.json</code>, the mirrored benchmark definitions, and the source/task manifests listed in those metadata files.</p>
+      <p>Train and test counts are shown as majority/minority row counts. Across the release, <code>label = 0</code> is the majority benign/normal class and <code>label = 1</code> is the minority attack class.</p>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>Reading the table</h2>
+        <ul class="mini-list">
+          <li><strong>Direct downloadable CSV</strong> means the public release includes a CSV under <code>data/</code>.</li>
+          <li><strong>Must be recreated locally</strong> means no public CSV is redistributed here; use the omitted-task copy and verification workflow.</li>
+          <li>The page keeps task wording close to manifest fields such as <code>provenance_note</code>, <code>source_manifest</code>, <code>task_manifest_files</code>, <code>downloadable</code>, <code>public_csv</code>, and <code>local_reproduction</code>.</li>
+        </ul>
+      </div>
+      <aside class="panel">
+        <h3>Primary sources in this repo</h3>
+        <ul class="mini-list">
+          <li><a href="metadata/datasets.json"><code>metadata/datasets.json</code></a></li>
+          <li><a href="metadata/datasets.csv"><code>metadata/datasets.csv</code></a></li>
+          <li><a href="metadata/omitted-datasets.json"><code>metadata/omitted-datasets.json</code></a></li>
+          <li><a href="metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json">30-task benchmark definition</a></li>
+          <li><a href="metadata/source_manifests/materialization/modern7_materialization_manifest.json">modern7 materialization manifest</a></li>
+          <li><a href="metadata/source_manifests/materialization/additional10_materialization_manifest.json">additional10 materialization manifest</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>All 30 Tasks</h2>
+        <div class="table-wrap">
+          <table class="compact-table">
+            <thead>
+              <tr>
+                <th>Publication year</th>
+                <th>Source corpus</th>
+                <th>Task title</th>
+                <th>Classes</th>
+                <th>Train maj./min.</th>
+                <th>Test maj./min.</th>
+                <th>CSV availability</th>
+                <th>How it was made</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="friday_bot"><td>2018</td><td>CIC-IDS-2017</td><td>CIC-IDS-2017 Friday Bot vs BENIGN<br><code>friday_bot</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Bot</td><td>48,000 / 500</td><td>48,000 / 500</td><td><a href="data/cic-ids-2017/friday_bot/friday_bot_vs_benign_preservedratio_train500minority_48000benign_test500minority_48000benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source manifest: Friday-WorkingHours-Morning.pcap_ISCX.csv; split mode <code>classwise_temporal</code>.</td></tr>
+              <tr id="thursday_web_attack_bruteforce"><td>2018</td><td>CIC-IDS-2017</td><td>CIC-IDS-2017 Thursday Web Attack - Brute Force vs BENIGN<br><code>thursday_web_attack_bruteforce</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Web Attack - Brute Force</td><td>55,500 / 500</td><td>55,500 / 500</td><td><a href="data/cic-ids-2017/thursday_web_attack_bruteforce/thursday_web_attack_bruteforce_vs_benign_preservedratio_train500minority_55500benign_test500minority_55500benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source manifest: Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv; split mode <code>classwise_temporal</code>.</td></tr>
+              <tr id="tuesday_ftp_patator"><td>2018</td><td>CIC-IDS-2017</td><td>CIC-IDS-2017 Tuesday FTP-Patator vs BENIGN<br><code>tuesday_ftp_patator</code></td><td><code>0</code>: BENIGN<br><code>1</code>: FTP-Patator</td><td>27,000 / 500</td><td>27,000 / 500</td><td><a href="data/cic-ids-2017/tuesday_ftp_patator/tuesday_ftp_patator_vs_benign_preservedratio_train500minority_27000benign_test500minority_27000benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source manifest: Tuesday-WorkingHours.pcap_ISCX.csv; split mode <code>classwise_temporal</code>.</td></tr>
+              <tr id="tuesday_ssh_patator"><td>2018</td><td>CIC-IDS-2017</td><td>CIC-IDS-2017 Tuesday SSH-Patator vs BENIGN<br><code>tuesday_ssh_patator</code></td><td><code>0</code>: BENIGN<br><code>1</code>: SSH-Patator</td><td>36,500 / 500</td><td>36,500 / 500</td><td><a href="data/cic-ids-2017/tuesday_ssh_patator/tuesday_ssh_patator_vs_benign_preservedratio_train500minority_36500benign_test500minority_36500benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D benchmark surface. Source manifest: Tuesday-WorkingHours.pcap_ISCX.csv; split mode <code>classwise_temporal</code>.</td></tr>
+              <tr id="cse_cic_ids2018_bot"><td>2018</td><td>CSE-CIC-IDS2018</td><td>CSE-CIC-IDS2018 Bot vs BENIGN<br><code>cse_cic_ids2018_bot</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Bot</td><td>23,500 / 500</td><td>23,500 / 500</td><td><a href="data/cse-cic-ids2018/cse_cic_ids2018_bot/cse_cic_ids2018_bot_vs_benign_preservedratio_train500minority_23500benign_test500minority_23500benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest uses all day-organized processed-flow CSVs in file order and a positive definition of normalized label equals 'bot'.</td></tr>
+              <tr id="cse_cic_ids2018_ftp_bruteforce"><td>2018</td><td>CSE-CIC-IDS2018</td><td>CSE-CIC-IDS2018 FTP-BruteForce vs BENIGN<br><code>cse_cic_ids2018_ftp_bruteforce</code></td><td><code>0</code>: BENIGN<br><code>1</code>: FTP-BruteForce</td><td>34,500 / 500</td><td>34,500 / 500</td><td><a href="data/cse-cic-ids2018/cse_cic_ids2018_ftp_bruteforce/cse_cic_ids2018_ftp_bruteforce_vs_benign_preservedratio_train500minority_34500benign_test500minority_34500benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest uses all day-organized processed-flow CSVs in file order and a positive definition of normalized label equals 'ftp bruteforce'.</td></tr>
+              <tr id="cse_cic_ids2018_infilteration"><td>2018</td><td>CSE-CIC-IDS2018</td><td>CSE-CIC-IDS2018 Infilteration vs BENIGN<br><code>cse_cic_ids2018_infilteration</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Infilteration</td><td>41,500 / 500</td><td>41,500 / 500</td><td><a href="data/cse-cic-ids2018/cse_cic_ids2018_infilteration/cse_cic_ids2018_infilteration_vs_benign_preservedratio_train500minority_41500benign_test500minority_41500benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest uses all day-organized processed-flow CSVs in file order and a positive definition of normalized label equals 'infilteration'.</td></tr>
+              <tr id="cse_cic_ids2018_ssh_bruteforce"><td>2018</td><td>CSE-CIC-IDS2018</td><td>CSE-CIC-IDS2018 SSH-Bruteforce vs BENIGN<br><code>cse_cic_ids2018_ssh_bruteforce</code></td><td><code>0</code>: BENIGN<br><code>1</code>: SSH-Bruteforce</td><td>35,500 / 500</td><td>35,500 / 500</td><td><a href="data/cse-cic-ids2018/cse_cic_ids2018_ssh_bruteforce/cse_cic_ids2018_ssh_bruteforce_vs_benign_preservedratio_train500minority_35500benign_test500minority_35500benign_chrono.csv">Direct downloadable CSV</a></td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest uses all day-organized processed-flow CSVs in file order and a positive definition of normalized label equals 'ssh bruteforce'.</td></tr>
+              <tr id="cic_unsw_nb15_exploits"><td>2015</td><td>CIC-UNSW-NB15</td><td>CIC-UNSW-NB15 Exploits vs BENIGN<br><code>cic_unsw_nb15_exploits</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Exploits</td><td>5,500 / 500</td><td>5,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest describes Data.csv joined row-wise with Label.csv in original row order; omitted-task manifest gives the exact benchmark source CSV to copy locally.</td></tr>
+              <tr id="cic_unsw_nb15_fuzzers"><td>2015</td><td>CIC-UNSW-NB15</td><td>CIC-UNSW-NB15 Fuzzers vs BENIGN<br><code>cic_unsw_nb15_fuzzers</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Fuzzers</td><td>6,000 / 500</td><td>6,000 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest describes Data.csv joined row-wise with Label.csv in original row order; omitted-task manifest gives the exact benchmark source CSV to copy locally.</td></tr>
+              <tr id="cic_unsw_nb15_generic"><td>2015</td><td>CIC-UNSW-NB15</td><td>CIC-UNSW-NB15 Generic vs BENIGN<br><code>cic_unsw_nb15_generic</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Generic</td><td>38,500 / 500</td><td>38,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest describes Data.csv joined row-wise with Label.csv in original row order; omitted-task manifest gives the exact benchmark source CSV to copy locally.</td></tr>
+              <tr id="cic_unsw_nb15_reconnaissance"><td>2015</td><td>CIC-UNSW-NB15</td><td>CIC-UNSW-NB15 Reconnaissance vs BENIGN<br><code>cic_unsw_nb15_reconnaissance</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Reconnaissance</td><td>10,500 / 500</td><td>10,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest describes Data.csv joined row-wise with Label.csv in original row order; omitted-task manifest gives the exact benchmark source CSV to copy locally.</td></tr>
+              <tr id="cic_unsw_nb15_shellcode"><td>2015</td><td>CIC-UNSW-NB15</td><td>CIC-UNSW-NB15 Shellcode vs BENIGN<br><code>cic_unsw_nb15_shellcode</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Shellcode</td><td>85,000 / 500</td><td>85,000 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Retained non-DoS task from the preserved-ratio single-label 25D surface. Source manifest describes Data.csv joined row-wise with Label.csv in original row order; omitted-task manifest gives the exact benchmark source CSV to copy locally.</td></tr>
+              <tr id="hikari_bruteforce_vs_benign"><td>2021</td><td>HIKARI-2021</td><td>HIKARI-2021 Bruteforce vs BENIGN<br><code>hikari_bruteforce_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Bruteforce</td><td>43,500 / 500</td><td>43,500 / 500</td><td><a href="data/hikari-2021/hikari_bruteforce_vs_benign/hikari_bruteforce_vs_benign_preservedratio_train500minority_43500majority_test500minority_43500majority_modern7.csv">Direct downloadable CSV</a></td><td>Modern7 materialization manifest records this candidate as materialized from staged train/test CSVs into the benchmark definition, with no dropped columns and <code>train_test_source_row_index_overlap</code> recorded as 0.</td></tr>
+              <tr id="hikari_probing_vs_benign"><td>2021</td><td>HIKARI-2021</td><td>HIKARI-2021 Probing vs BENIGN<br><code>hikari_probing_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: Probing</td><td>11,000 / 500</td><td>11,000 / 500</td><td><a href="data/hikari-2021/hikari_probing_vs_benign/hikari_probing_vs_benign_preservedratio_train500minority_11000majority_test500minority_11000majority_modern7.csv">Direct downloadable CSV</a></td><td>Modern7 materialization manifest records this candidate as materialized from staged train/test CSVs into the benchmark definition, with no dropped columns and <code>train_test_source_row_index_overlap</code> recorded as 0.</td></tr>
+              <tr id="ciciomt2024_arp_spoofing_vs_benign"><td>2024</td><td>CICIoMT2024Small mirror</td><td>CICIoMT2024Small mirror ARP Spoofing vs BENIGN<br><code>ciciomt2024_arp_spoofing_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: ARP Spoofing</td><td>12,500 / 500</td><td>12,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Modern7 materialization records this candidate from the public Hugging Face CICIoMT2024Small mirror. Provenance notes state the official UNB endpoint remains registration-gated; omission notes state labels were assigned from filenames.</td></tr>
+              <tr id="ciciomt2024_mqtt_malformed_data_vs_benign"><td>2024</td><td>CICIoMT2024Small mirror</td><td>CICIoMT2024Small mirror MQTT Malformed Data vs BENIGN<br><code>ciciomt2024_mqtt_malformed_data_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: MQTT Malformed Data</td><td>8,500 / 500</td><td>8,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Modern7 materialization records this candidate from the public Hugging Face CICIoMT2024Small mirror. Provenance notes state the official UNB endpoint remains registration-gated; omission notes state labels were assigned from filenames.</td></tr>
+              <tr id="edge_iiotset_sql_injection_vs_normal"><td>2022</td><td>Edge-IIoTset</td><td>Edge-IIoTset SQL injection vs NORMAL<br><code>edge_iiotset_sql_injection_vs_normal</code></td><td><code>0</code>: NORMAL<br><code>1</code>: SQL_injection_attack</td><td>15,500 / 500</td><td>15,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Modern7 materialization records this candidate from a public Kaggle mirror while the official IEEE DataPort route remains gated. Edge feature filtering dropped timestamp, IP, payload, text, checksum, sequence, and related high-cardinality columns.</td></tr>
+              <tr id="edge_iiotset_password_vs_normal"><td>2022</td><td>Edge-IIoTset</td><td>Edge-IIoTset Password vs NORMAL<br><code>edge_iiotset_password_vs_normal</code></td><td><code>0</code>: NORMAL<br><code>1</code>: Password_attack</td><td>16,000 / 500</td><td>16,000 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Modern7 materialization records this candidate from a public Kaggle mirror while the official IEEE DataPort route remains gated. Edge feature filtering dropped timestamp, IP, payload, text, checksum, sequence, and related high-cardinality columns.</td></tr>
+              <tr id="edge_iiotset_uploading_vs_normal"><td>2022</td><td>Edge-IIoTset</td><td>Edge-IIoTset Uploading vs NORMAL<br><code>edge_iiotset_uploading_vs_normal</code></td><td><code>0</code>: NORMAL<br><code>1</code>: Uploading_attack</td><td>21,000 / 500</td><td>21,000 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Modern7 materialization records this candidate from a public Kaggle mirror while the official IEEE DataPort route remains gated. Edge feature filtering dropped timestamp, IP, payload, text, checksum, sequence, and related high-cardinality columns.</td></tr>
+              <tr id="5g_nidd_tcp_connect_scan_vs_benign"><td>2022</td><td>5G-NIDD</td><td>5G-NIDD TCPConnectScan vs BENIGN<br><code>5g_nidd_tcp_connect_scan_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: TCPConnectScan</td><td>11,500 / 500</td><td>11,500 / 500</td><td><a href="data/5g-nidd/5g_nidd_tcp_connect_scan_vs_benign/5g_nidd_tcp_connect_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records the open Fairdata route as the local artifact source while the official IEEE DataPort route remains gated. Materialization dropped <code>Offset</code>, <code>SrcTCPBase</code>, and <code>DstTCPBase</code>.</td></tr>
+              <tr id="5g_nidd_syn_scan_vs_benign"><td>2022</td><td>5G-NIDD</td><td>5G-NIDD SYNScan vs BENIGN<br><code>5g_nidd_syn_scan_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: SYNScan</td><td>11,500 / 500</td><td>11,500 / 500</td><td><a href="data/5g-nidd/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records the open Fairdata route as the local artifact source while the official IEEE DataPort route remains gated. Materialization dropped <code>Offset</code>, <code>SrcTCPBase</code>, and <code>DstTCPBase</code>.</td></tr>
+              <tr id="5g_nidd_udp_scan_vs_benign"><td>2022</td><td>5G-NIDD</td><td>5G-NIDD UDPScan vs BENIGN<br><code>5g_nidd_udp_scan_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: UDPScan</td><td>15,000 / 500</td><td>15,000 / 500</td><td><a href="data/5g-nidd/5g_nidd_udp_scan_vs_benign/5g_nidd_udp_scan_vs_benign_preservedratio_train500minority_15000majority_test500minority_15000majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records the open Fairdata route as the local artifact source while the official IEEE DataPort route remains gated. Materialization dropped <code>Offset</code>, <code>SrcTCPBase</code>, and <code>DstTCPBase</code>.</td></tr>
+              <tr id="edge_iiotset_vulnerability_scanner_vs_normal"><td>2022</td><td>Edge-IIoTset</td><td>Edge-IIoTset Vulnerability scanner vs NORMAL<br><code>edge_iiotset_vulnerability_scanner_vs_normal</code></td><td><code>0</code>: NORMAL<br><code>1</code>: Vulnerability_scanner_attack</td><td>16,000 / 500</td><td>16,000 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Additional10 materialization records this candidate from a public Kaggle mirror while the official IEEE DataPort route remains gated. Edge feature filtering dropped timestamp, IP, payload, text, checksum, sequence, and related high-cardinality columns.</td></tr>
+              <tr id="edge_iiotset_backdoor_vs_normal"><td>2022</td><td>Edge-IIoTset</td><td>Edge-IIoTset Backdoor vs NORMAL<br><code>edge_iiotset_backdoor_vs_normal</code></td><td><code>0</code>: NORMAL<br><code>1</code>: Backdoor_attack</td><td>32,000 / 500</td><td>32,000 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Additional10 materialization records this candidate from a public Kaggle mirror while the official IEEE DataPort route remains gated. Edge feature filtering dropped timestamp, IP, payload, text, checksum, sequence, and related high-cardinality columns.</td></tr>
+              <tr id="edge_iiotset_port_scanning_vs_normal"><td>2022</td><td>Edge-IIoTset</td><td>Edge-IIoTset Port Scanning vs NORMAL<br><code>edge_iiotset_port_scanning_vs_normal</code></td><td><code>0</code>: NORMAL<br><code>1</code>: Port_Scanning_attack</td><td>35,500 / 500</td><td>35,500 / 500</td><td>Must be recreated locally; public CSV omitted</td><td>Additional10 materialization records this candidate from a public Kaggle mirror while the official IEEE DataPort route remains gated. Edge feature filtering dropped timestamp, IP, payload, text, checksum, sequence, and related high-cardinality columns.</td></tr>
+              <tr id="rt_iot2022_nmap_udp_scan_vs_benign"><td>2023</td><td>RT-IoT2022</td><td>RT-IoT2022 NMAP UDP SCAN vs BENIGN<br><code>rt_iot2022_nmap_udp_scan_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: NMAP_UDP_SCAN</td><td>2,000 / 500</td><td>2,000 / 500</td><td><a href="data/rt-iot2022/rt_iot2022_nmap_udp_scan_vs_benign/rt_iot2022_nmap_udp_scan_vs_benign_preservedratio_train500minority_2000majority_test500minority_2000majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records this staged RT-IoT2022 candidate as materialized for the benchmark definition, with no extra materialization drops and <code>train_test_source_row_index_overlap</code> recorded as 0.</td></tr>
+              <tr id="rt_iot2022_nmap_xmas_tree_scan_vs_benign"><td>2023</td><td>RT-IoT2022</td><td>RT-IoT2022 NMAP XMAS TREE SCAN vs BENIGN<br><code>rt_iot2022_nmap_xmas_tree_scan_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: NMAP_XMAS_TREE_SCAN</td><td>3,000 / 500</td><td>3,000 / 500</td><td><a href="data/rt-iot2022/rt_iot2022_nmap_xmas_tree_scan_vs_benign/rt_iot2022_nmap_xmas_tree_scan_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records this staged RT-IoT2022 candidate as materialized for the benchmark definition, with no extra materialization drops and <code>train_test_source_row_index_overlap</code> recorded as 0.</td></tr>
+              <tr id="rt_iot2022_nmap_os_detection_vs_benign"><td>2023</td><td>RT-IoT2022</td><td>RT-IoT2022 NMAP OS DETECTION vs BENIGN<br><code>rt_iot2022_nmap_os_detection_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: NMAP_OS_DETECTION</td><td>3,000 / 500</td><td>3,000 / 500</td><td><a href="data/rt-iot2022/rt_iot2022_nmap_os_detection_vs_benign/rt_iot2022_nmap_os_detection_vs_benign_preservedratio_train500minority_3000majority_test500minority_3000majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records this staged RT-IoT2022 candidate as materialized for the benchmark definition, with no extra materialization drops and <code>train_test_source_row_index_overlap</code> recorded as 0.</td></tr>
+              <tr id="rt_iot2022_nmap_tcp_scan_vs_benign"><td>2023</td><td>RT-IoT2022</td><td>RT-IoT2022 NMAP TCP scan vs BENIGN<br><code>rt_iot2022_nmap_tcp_scan_vs_benign</code></td><td><code>0</code>: BENIGN<br><code>1</code>: NMAP_TCP_scan</td><td>6,000 / 500</td><td>6,000 / 500</td><td><a href="data/rt-iot2022/rt_iot2022_nmap_tcp_scan_vs_benign/rt_iot2022_nmap_tcp_scan_vs_benign_preservedratio_train500minority_6000majority_test500minority_6000majority_additional10.csv">Direct downloadable CSV</a></td><td>Additional10 materialization records this staged RT-IoT2022 candidate as materialized for the benchmark definition, with no extra materialization drops and <code>train_test_source_row_index_overlap</code> recorded as 0.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>Use the files programmatically</h2>
+        <pre><code>python3 scripts/list_tasks.py --status all
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot</code></pre>
+        <p>The split helper reconstructs benchmark-consistent train/test CSVs from the metadata and row order. It does not download or redistribute omitted datasets.</p>
+      </div>
+      <aside class="panel">
+        <h3>Need omitted CSVs?</h3>
+        <p>For rows marked as local recreation only, follow the copy-and-verify workflow in <a href="recreate.html">Recreate Omitted</a>. The exact expected source checksums and target paths are in <a href="metadata/omitted-datasets.json"><code>metadata/omitted-datasets.json</code></a>.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>For direct public CSV links, continue to <a href="download.html">Download</a>. For full-surface reproduction, continue to <a href="recreate.html">Recreate Omitted</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

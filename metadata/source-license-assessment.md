@@ -37,3 +37,5 @@ The current public-positioning is:
 - directly redistribute only the 17 lower-risk CSVs selected for the public-safe subset;
 - omit `Edge-IIoTset`, `CIC-UNSW-NB15`, and `CICIoMT2024Small mirror` CSVs from the public bundle;
 - keep omitted tasks documented in machine-readable metadata with exact local reproduction paths.
+
+Task-level status is recorded in `metadata/datasets.csv` and `metadata/datasets.json` through `downloadable`, `public_bundle_status`, `public_csv`, `omission_reason`, `omission_caveat`, and `redistribution_caveat` fields. The website download catalog repeats the redistribution status next to each direct public CSV link.

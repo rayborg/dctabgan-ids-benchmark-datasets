@@ -16,6 +16,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="tasks.html">Tasks</a>
         <a href="download.html">Download</a>
         <a href="recreate.html">Recreate Omitted</a>
         <a href="benchmark.html">Replicate Benchmark</a>
@@ -55,6 +56,14 @@
           </tbody>
         </table>
         <p><a href="metadata/source-license-assessment.md">Read the full source-license assessment</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Where status is recorded per task</h2>
+        <p>Every task row in <a href="metadata/datasets.csv"><code>metadata/datasets.csv</code></a> and <a href="metadata/datasets.json"><code>metadata/datasets.json</code></a> includes <code>downloadable</code>, <code>public_bundle_status</code>, <code>public_csv</code>, <code>omission_reason</code>, <code>omission_caveat</code>, and <code>redistribution_caveat</code>. The downloadable task catalog repeats the same status next to each direct CSV link.</p>
+        <p><strong>Downloadable</strong> means the public release includes a CSV under <code>data/</code>. <strong>Omitted/not redistributed</strong> means no public CSV is shipped here; the task is retained only as metadata plus a local/private recreation workflow.</p>
       </div>
     </section>
 

@@ -17,18 +17,35 @@ It directly redistributes 17 cleaned CSVs and documents 13 omitted/not redistrib
 - Checksums: [`SHA256SUMS.txt`](SHA256SUMS.txt)
 - Source manifests: [`metadata/source_manifests/`](metadata/source_manifests/)
 
+## Benchmark-Ready CSV Meaning
+
+The downloadable CSVs are the exact cleaned, selected, preserved-ratio input CSVs used by the benchmark definitions. They already have binary `label` semantics (`0` majority benign/normal, `1` minority attack), no-DoS/no-DDoS scope selection, preserved-ratio row counts, benchmark row order, and recorded task-specific materialization drops.
+
+They are not already train/test files, estimator-specific encodings, scaled matrices, train-imputed matrices, or synthetic DCTABGAN outputs. Provenance columns such as `source_row_index` remain in the full CSVs for auditability and should usually be stripped before ML fitting.
+
+Use `scripts/export_benchmark_splits.py` to reconstruct benchmark-consistent train/test files and drop `source_row_index` by default:
+
+```bash
+python3 scripts/list_tasks.py --status downloadable
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot
+```
+
+Add `--encoded` for basic dependency-free `X_train.csv`, `y_train.csv`, `X_test.csv`, and `y_test.csv` exports fitted from train rows only.
+
 ## Public Bundle Scope
 
 | Source corpus | Full tasks | Downloadable CSVs | Omitted tasks | Status |
 |---|---:|---:|---:|---|
-| CIC-IDS-2017 | 4 | 4 | 0 | Downloadable with provenance caveats |
-| CSE-CIC-IDS2018 | 4 | 4 | 0 | Downloadable with provenance caveats |
-| HIKARI-2021 | 2 | 2 | 0 | Downloadable with attribution caveat |
-| 5G-NIDD | 3 | 3 | 0 | Downloadable with attribution caveat |
-| RT-IoT2022 | 4 | 4 | 0 | Downloadable with attribution caveat |
-| Edge-IIoTset | 6 | 0 | 6 | Omitted/not redistributed |
-| CIC-UNSW-NB15 | 5 | 0 | 5 | Omitted/not redistributed |
-| CICIoMT2024Small mirror | 2 | 0 | 2 | Omitted/not redistributed |
+| CIC-IDS-2017 | 4 | 4 | 0 | Downloadable with CIC provenance/citation caveat; no project relicensing |
+| CSE-CIC-IDS2018 | 4 | 4 | 0 | Downloadable with CIC/UNB provenance/citation caveat; no project relicensing |
+| HIKARI-2021 | 2 | 2 | 0 | Downloadable under documented CC BY 4.0 route with attribution |
+| 5G-NIDD | 3 | 3 | 0 | Downloadable under Fairdata CC BY 4.0 route; IEEE route remains gated |
+| RT-IoT2022 | 4 | 4 | 0 | Downloadable under UCI CC BY 4.0 route with attribution |
+| Edge-IIoTset | 6 | 0 | 6 | Omitted/not redistributed; local reproduction only |
+| CIC-UNSW-NB15 | 5 | 0 | 5 | Omitted/not redistributed; local reproduction only |
+| CICIoMT2024Small mirror | 2 | 0 | 2 | Omitted/not redistributed; local reproduction only |
 | Total | 30 | 17 | 13 | Public-safe subset |
 
 Each dataset row includes `downloadable`, `public_bundle_status`, `public_csv`, `source_benchmark_csv`, `omission_reason`, and `redistribution_caveat` fields.

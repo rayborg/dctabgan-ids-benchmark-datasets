@@ -16,6 +16,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="tasks.html">Tasks</a>
         <a href="download.html">Download</a>
         <a href="recreate.html" aria-current="page">Recreate Omitted</a>
         <a href="benchmark.html">Replicate Benchmark</a>
@@ -110,6 +111,16 @@ python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test
           <li>the benchmark rebuild script to use if needed</li>
         </ul>
         <p><a href="metadata/omitted-datasets-reproduction.md">Read the full omitted-task reproduction note</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>After local recreation: export ML splits</h2>
+        <p>Once an omitted CSV exists locally under the ignored <code>data/cic-unsw-nb15/</code>, <code>data/ciciomt2024small-mirror/</code>, or <code>data/edge-iiotset/</code> path, the same split helper can export benchmark-consistent train/test files. This remains a local/private workflow and does not make omitted CSVs part of the public bundle.</p>
+        <pre><code>python3 scripts/export_benchmark_splits.py \
+  --task cic_unsw_nb15_exploits \
+  --output-dir ml_exports/cic_unsw_nb15_exploits</code></pre>
       </div>
     </section>
   </main>

@@ -16,6 +16,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="tasks.html">Tasks</a>
         <a href="download.html">Download</a>
         <a href="recreate.html">Recreate Omitted</a>
         <a href="benchmark.html">Replicate Benchmark</a>
@@ -66,8 +67,15 @@ cd dctabgan-ids-benchmark-datasets
 python3 scripts/recreate_omitted_datasets.py \
   --benchmark-repo /path/to/dctabgan-benchmark-expansion
 
-# 3. Use metadata/datasets.json to enumerate tasks and counts
-# 4. Run your own split-first training/evaluation pipeline</code></pre>
+# 3. Enumerate task keys and availability
+python3 scripts/list_tasks.py --status all
+
+# 4. Export benchmark-consistent train/test files for a task
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot
+
+# 5. Run your own split-first training/evaluation pipeline</code></pre>
         <p>If you want to align with the original benchmark structure as closely as possible, use the benchmark definitions and mirrored protocol docs here rather than inventing your own task surface or split semantics:</p>
         <ul class="mini-list">
           <li><a href="metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json">30-task dataset definition</a></li>
@@ -90,6 +98,7 @@ python3 scripts/recreate_omitted_datasets.py \
           <li><code>train_counts</code> and <code>test_counts</code>: exact majority/minority supports</li>
           <li><code>source_benchmark_csv</code>: exact benchmark-processed source path</li>
           <li><code>local_reproduction</code>: how to rebuild or copy omitted tasks privately</li>
+          <li><code>redistribution_caveat</code>: per-task/corpus licensing and redistribution note</li>
         </ul>
         <p><a href="metadata/datasets.json">Open the full JSON manifest</a></p>
       </div>

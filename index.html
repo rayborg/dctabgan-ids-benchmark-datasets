@@ -16,6 +16,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="index.html" aria-current="page">Home</a>
+        <a href="tasks.html">Tasks</a>
         <a href="download.html">Download</a>
         <a href="recreate.html">Recreate Omitted</a>
         <a href="benchmark.html">Replicate Benchmark</a>
@@ -33,8 +34,10 @@
           <h1>Stress-test imbalanced-data methods on a real IDS benchmark with exact task counts and reproducible splits.</h1>
           <p>This release is built for academics who want something stronger than a single toy dataset. It gives you a controlled IDS benchmark surface for testing resampling, cost-sensitive learning, synthetic tabular generation, and downstream classifier robustness under explicit majority/minority imbalance.</p>
           <p>The full benchmark contains 30 binary attack-vs-benign/normal tasks across eight source corpora. This public release directly ships 17 lower-risk cleaned CSVs and gives you exact scripts, manifests, and copy-and-verify workflows to recreate the remaining 13 omitted tasks locally.</p>
+          <p>The CSVs are benchmark-ready inputs, not pre-split or model-encoded matrices: labels, selected rows, no-DoS scope, task counts, and row order are already set, while train/test export, scaling, encoding, and estimator-specific preprocessing remain up to you.</p>
           <div class="button-row">
             <a class="button primary" href="compare.html">Benchmark Your Method</a>
+            <a class="button secondary" href="tasks.html">Explore the 30 Tasks</a>
             <a class="button secondary" href="download.html">Use the Public Datasets</a>
             <a class="button" href="recreate.html">Recreate the Full 30-Task Surface</a>
           </div>
@@ -54,6 +57,31 @@
             <div class="stat"><strong>500 / 500</strong><span>Minority train/test rows per task</span></div>
             <div class="stat"><strong>No DoS</strong><span>No DoS, DDoS, or flood-like tasks</span></div>
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell two-col">
+        <div class="panel">
+          <h2>What has already been done to the CSVs</h2>
+          <ul class="mini-list">
+            <li>Binary attack-vs-benign/normal task selection is complete under the no-DoS/no-DDoS/no-flood benchmark scope.</li>
+            <li>The target is normalized to <code>label</code>, with <code>0</code> as majority benign/normal and <code>1</code> as minority attack.</li>
+            <li>Preserved-ratio selected rows are materialized for 500 minority train rows and 500 minority test rows per task.</li>
+            <li>CSV row order is retained for benchmark <code>classwise_temporal</code> split reconstruction.</li>
+            <li>Recorded materialization drops are already applied, such as 5G-NIDD <code>Offset</code>, <code>SrcTCPBase</code>, and <code>DstTCPBase</code>.</li>
+          </ul>
+        </div>
+        <aside class="panel">
+          <h2>What has not been done yet</h2>
+          <ul class="mini-list">
+            <li>The CSVs are not already separated into train/test files.</li>
+            <li>They are not scaled, standardized, one-hot encoded, train-imputed, or estimator-specific feature matrices.</li>
+            <li>They are not synthetic DCTABGAN outputs.</li>
+            <li>Audit columns such as <code>source_row_index</code> remain in the full CSVs and should usually be stripped from ML features.</li>
+          </ul>
+          <p>Use <code>scripts/export_benchmark_splits.py</code> to export benchmark-consistent train/test CSVs and drop <code>source_row_index</code> by default.</p>
         </aside>
       </div>
     </section>
@@ -119,7 +147,7 @@
     <section class="section">
       <div class="site-shell">
         <h2>Full task composition</h2>
-        <p>The table below mirrors the benchmark-facing dataset composition view used in the paper, with one added column for the source publication year. Publication year refers to the source record or citation year used to describe the corpus, while the row counts are the exact majority/minority supports used in the benchmark surface.</p>
+        <p>The table below mirrors the benchmark-facing dataset composition view used in the paper, with one added column for the source publication year. Publication year refers to the source record or citation year used to describe the corpus, while the row counts are the exact majority/minority supports used in the benchmark surface. For per-task classes, availability, and provenance notes, open the <a href="tasks.html">30-task catalog</a>.</p>
         <div class="table-wrap">
           <table class="compact-table">
             <thead>
@@ -130,40 +158,40 @@
                 <th>Attack/minority label</th>
                 <th>Train maj./min.</th>
                 <th>Test maj./min.</th>
-                <th>Availability</th>
+                <th>Redistribution status</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Friday Bot vs BENIGN</td><td>Friday Bot</td><td>48,000/500</td><td>48,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Thursday Web Attack - Brute Force vs BENIGN</td><td>Thursday Web Attack - Brute Force</td><td>55,500/500</td><td>55,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Tuesday FTP-Patator vs BENIGN</td><td>Tuesday FTP-Patator</td><td>27,000/500</td><td>27,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Tuesday SSH-Patator vs BENIGN</td><td>Tuesday SSH-Patator</td><td>36,500/500</td><td>36,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>Bot vs BENIGN</td><td>Bot</td><td>23,500/500</td><td>23,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>FTP-BruteForce vs BENIGN</td><td>FTP-BruteForce</td><td>34,500/500</td><td>34,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>Infilteration vs BENIGN</td><td>Infilteration</td><td>41,500/500</td><td>41,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>SSH-Bruteforce vs BENIGN</td><td>SSH-Bruteforce</td><td>35,500/500</td><td>35,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Exploits vs BENIGN</td><td>Exploits</td><td>5,500/500</td><td>5,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Fuzzers vs BENIGN</td><td>Fuzzers</td><td>6,000/500</td><td>6,000/500</td><td>Local recreate</td></tr>
-              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Generic vs BENIGN</td><td>Generic</td><td>38,500/500</td><td>38,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Reconnaissance vs BENIGN</td><td>Reconnaissance</td><td>10,500/500</td><td>10,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Shellcode vs BENIGN</td><td>Shellcode</td><td>85,000/500</td><td>85,000/500</td><td>Local recreate</td></tr>
-              <tr><td>2021</td><td>HIKARI-2021</td><td>Bruteforce vs BENIGN</td><td>Bruteforce</td><td>43,500/500</td><td>43,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2021</td><td>HIKARI-2021</td><td>Probing vs BENIGN</td><td>Probing</td><td>11,000/500</td><td>11,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2024</td><td>CICIoMT2024Small mirror</td><td>ARP Spoofing vs BENIGN</td><td>ARP Spoofing</td><td>12,500/500</td><td>12,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2024</td><td>CICIoMT2024Small mirror</td><td>MQTT Malformed Data vs BENIGN</td><td>MQTT Malformed Data</td><td>8,500/500</td><td>8,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2022</td><td>Edge-IIoTset</td><td>SQL injection vs NORMAL</td><td>SQL_injection_attack</td><td>15,500/500</td><td>15,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2022</td><td>Edge-IIoTset</td><td>Password vs NORMAL</td><td>Password_attack</td><td>16,000/500</td><td>16,000/500</td><td>Local recreate</td></tr>
-              <tr><td>2022</td><td>Edge-IIoTset</td><td>Uploading vs NORMAL</td><td>Uploading_attack</td><td>21,000/500</td><td>21,000/500</td><td>Local recreate</td></tr>
-              <tr><td>2022</td><td>5G-NIDD</td><td>TCPConnectScan vs BENIGN</td><td>TCPConnectScan</td><td>11,500/500</td><td>11,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2022</td><td>5G-NIDD</td><td>SYNScan vs BENIGN</td><td>SYNScan</td><td>11,500/500</td><td>11,500/500</td><td>Public CSV</td></tr>
-              <tr><td>2022</td><td>5G-NIDD</td><td>UDPScan vs BENIGN</td><td>UDPScan</td><td>15,000/500</td><td>15,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2022</td><td>Edge-IIoTset</td><td>Vulnerability scanner vs NORMAL</td><td>Vulnerability_scanner_attack</td><td>16,000/500</td><td>16,000/500</td><td>Local recreate</td></tr>
-              <tr><td>2022</td><td>Edge-IIoTset</td><td>Backdoor vs NORMAL</td><td>Backdoor_attack</td><td>32,000/500</td><td>32,000/500</td><td>Local recreate</td></tr>
-              <tr><td>2022</td><td>Edge-IIoTset</td><td>Port Scanning vs NORMAL</td><td>Port_Scanning_attack</td><td>35,500/500</td><td>35,500/500</td><td>Local recreate</td></tr>
-              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP UDP SCAN vs BENIGN</td><td>NMAP_UDP_SCAN</td><td>2,000/500</td><td>2,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP XMAS TREE SCAN vs BENIGN</td><td>NMAP_XMAS_TREE_SCAN</td><td>3,000/500</td><td>3,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP OS DETECTION vs BENIGN</td><td>NMAP_OS_DETECTION</td><td>3,000/500</td><td>3,000/500</td><td>Public CSV</td></tr>
-              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP TCP scan vs BENIGN</td><td>NMAP_TCP_scan</td><td>6,000/500</td><td>6,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Friday Bot vs BENIGN</td><td>Friday Bot</td><td>48,000/500</td><td>48,000/500</td><td>Public CSV; CIC provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Thursday Web Attack - Brute Force vs BENIGN</td><td>Thursday Web Attack - Brute Force</td><td>55,500/500</td><td>55,500/500</td><td>Public CSV; CIC provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Tuesday FTP-Patator vs BENIGN</td><td>Tuesday FTP-Patator</td><td>27,000/500</td><td>27,000/500</td><td>Public CSV; CIC provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Tuesday SSH-Patator vs BENIGN</td><td>Tuesday SSH-Patator</td><td>36,500/500</td><td>36,500/500</td><td>Public CSV; CIC provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>Bot vs BENIGN</td><td>Bot</td><td>23,500/500</td><td>23,500/500</td><td>Public CSV; CIC/UNB provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>FTP-BruteForce vs BENIGN</td><td>FTP-BruteForce</td><td>34,500/500</td><td>34,500/500</td><td>Public CSV; CIC/UNB provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>Infilteration vs BENIGN</td><td>Infilteration</td><td>41,500/500</td><td>41,500/500</td><td>Public CSV; CIC/UNB provenance/citation caveat</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>SSH-Bruteforce vs BENIGN</td><td>SSH-Bruteforce</td><td>35,500/500</td><td>35,500/500</td><td>Public CSV; CIC/UNB provenance/citation caveat</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Exploits vs BENIGN</td><td>Exploits</td><td>5,500/500</td><td>5,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Fuzzers vs BENIGN</td><td>Fuzzers</td><td>6,000/500</td><td>6,000/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Generic vs BENIGN</td><td>Generic</td><td>38,500/500</td><td>38,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Reconnaissance vs BENIGN</td><td>Reconnaissance</td><td>10,500/500</td><td>10,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Shellcode vs BENIGN</td><td>Shellcode</td><td>85,000/500</td><td>85,000/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2021</td><td>HIKARI-2021</td><td>Bruteforce vs BENIGN</td><td>Bruteforce</td><td>43,500/500</td><td>43,500/500</td><td>Public CSV; CC BY 4.0 attribution route</td></tr>
+              <tr><td>2021</td><td>HIKARI-2021</td><td>Probing vs BENIGN</td><td>Probing</td><td>11,000/500</td><td>11,000/500</td><td>Public CSV; CC BY 4.0 attribution route</td></tr>
+              <tr><td>2024</td><td>CICIoMT2024Small mirror</td><td>ARP Spoofing vs BENIGN</td><td>ARP Spoofing</td><td>12,500/500</td><td>12,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2024</td><td>CICIoMT2024Small mirror</td><td>MQTT Malformed Data vs BENIGN</td><td>MQTT Malformed Data</td><td>8,500/500</td><td>8,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>SQL injection vs NORMAL</td><td>SQL_injection_attack</td><td>15,500/500</td><td>15,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Password vs NORMAL</td><td>Password_attack</td><td>16,000/500</td><td>16,000/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Uploading vs NORMAL</td><td>Uploading_attack</td><td>21,000/500</td><td>21,000/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2022</td><td>5G-NIDD</td><td>TCPConnectScan vs BENIGN</td><td>TCPConnectScan</td><td>11,500/500</td><td>11,500/500</td><td>Public CSV; Fairdata CC BY 4.0 route; IEEE gated</td></tr>
+              <tr><td>2022</td><td>5G-NIDD</td><td>SYNScan vs BENIGN</td><td>SYNScan</td><td>11,500/500</td><td>11,500/500</td><td>Public CSV; Fairdata CC BY 4.0 route; IEEE gated</td></tr>
+              <tr><td>2022</td><td>5G-NIDD</td><td>UDPScan vs BENIGN</td><td>UDPScan</td><td>15,000/500</td><td>15,000/500</td><td>Public CSV; Fairdata CC BY 4.0 route; IEEE gated</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Vulnerability scanner vs NORMAL</td><td>Vulnerability_scanner_attack</td><td>16,000/500</td><td>16,000/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Backdoor vs NORMAL</td><td>Backdoor_attack</td><td>32,000/500</td><td>32,000/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Port Scanning vs NORMAL</td><td>Port_Scanning_attack</td><td>35,500/500</td><td>35,500/500</td><td>Omitted; not redistributed; local reproduction only</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP UDP SCAN vs BENIGN</td><td>NMAP_UDP_SCAN</td><td>2,000/500</td><td>2,000/500</td><td>Public CSV; UCI CC BY 4.0 attribution route</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP XMAS TREE SCAN vs BENIGN</td><td>NMAP_XMAS_TREE_SCAN</td><td>3,000/500</td><td>3,000/500</td><td>Public CSV; UCI CC BY 4.0 attribution route</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP OS DETECTION vs BENIGN</td><td>NMAP_OS_DETECTION</td><td>3,000/500</td><td>3,000/500</td><td>Public CSV; UCI CC BY 4.0 attribution route</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP TCP scan vs BENIGN</td><td>NMAP_TCP_scan</td><td>6,000/500</td><td>6,000/500</td><td>Public CSV; UCI CC BY 4.0 attribution route</td></tr>
             </tbody>
           </table>
         </div>
@@ -194,6 +222,25 @@
     </section>
 
     <section class="section">
+      <div class="site-shell">
+        <div class="panel">
+          <h2>What we did to make these files benchmark-ready</h2>
+          <p>The downloadable CSVs are not raw packet captures, and they are not synthetic outputs. They are the exact cleaned benchmark input tables used to define the task surface, so several benchmark-preparation steps have already been done before any model-specific preprocessing begins.</p>
+          <ul class="mini-list">
+            <li>Selected the exact 30 binary IDS tasks used in the benchmark surface.</li>
+            <li>Applied the benchmark no-DoS, no-DDoS, and no-flood scope rule.</li>
+            <li>Normalized every task to a binary <code>label</code> target where <code>0</code> is majority benign/normal and <code>1</code> is minority attack.</li>
+            <li>Materialized preserved-ratio benchmark subsets with exact majority/minority row counts.</li>
+            <li>Preserved benchmark row order so train/test reconstruction stays consistent with the benchmark definitions.</li>
+            <li>Applied task-specific materialization drops already recorded in the manifests, such as the 5G-NIDD capture-order artifact columns and the high-cardinality Edge-IIoTset artifact columns.</li>
+            <li>Kept provenance columns such as <code>source_row_index</code> in the full CSVs for auditability.</li>
+          </ul>
+          <p>What still remains for you is model-facing preprocessing, not benchmark-input cleaning. Use <code>scripts/export_benchmark_splits.py</code> to export train/test files immediately, and add <code>--encoded</code> if you want dependency-free train-only one-hot encoded matrices for scikit-learn-style experiments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="site-shell two-col">
         <div class="panel">
           <h3>Benchmark scope</h3>
@@ -205,17 +252,18 @@
                 <th>Full tasks</th>
                 <th>Downloadable now</th>
                 <th>Omitted</th>
+                <th>Redistribution status</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>CIC-IDS-2017</td><td>4</td><td>4</td><td>0</td></tr>
-              <tr><td>CSE-CIC-IDS2018</td><td>4</td><td>4</td><td>0</td></tr>
-              <tr><td>HIKARI-2021</td><td>2</td><td>2</td><td>0</td></tr>
-              <tr><td>5G-NIDD</td><td>3</td><td>3</td><td>0</td></tr>
-              <tr><td>RT-IoT2022</td><td>4</td><td>4</td><td>0</td></tr>
-              <tr><td>Edge-IIoTset</td><td>6</td><td>0</td><td>6</td></tr>
-              <tr><td>CIC-UNSW-NB15</td><td>5</td><td>0</td><td>5</td></tr>
-              <tr><td>CICIoMT2024Small mirror</td><td>2</td><td>0</td><td>2</td></tr>
+              <tr><td>CIC-IDS-2017</td><td>4</td><td>4</td><td>0</td><td>Downloadable with CIC provenance/citation caveat; no project relicensing</td></tr>
+              <tr><td>CSE-CIC-IDS2018</td><td>4</td><td>4</td><td>0</td><td>Downloadable with CIC/UNB provenance/citation caveat; no project relicensing</td></tr>
+              <tr><td>HIKARI-2021</td><td>2</td><td>2</td><td>0</td><td>Downloadable under documented CC BY 4.0 route with attribution</td></tr>
+              <tr><td>5G-NIDD</td><td>3</td><td>3</td><td>0</td><td>Downloadable under Fairdata CC BY 4.0 route; IEEE route remains gated</td></tr>
+              <tr><td>RT-IoT2022</td><td>4</td><td>4</td><td>0</td><td>Downloadable under UCI CC BY 4.0 route with attribution</td></tr>
+              <tr><td>Edge-IIoTset</td><td>6</td><td>0</td><td>6</td><td>Omitted; not redistributed; local/private reproduction only</td></tr>
+              <tr><td>CIC-UNSW-NB15</td><td>5</td><td>0</td><td>5</td><td>Omitted; not redistributed; local/private reproduction only</td></tr>
+              <tr><td>CICIoMT2024Small mirror</td><td>2</td><td>0</td><td>2</td><td>Omitted; not redistributed; local/private reproduction only</td></tr>
             </tbody>
           </table>
         </div>
@@ -227,6 +275,8 @@
             <li><a href="metadata/omitted-datasets.json"><code>metadata/omitted-datasets.json</code></a>: omitted-task manifest</li>
             <li><a href="metadata/omitted-datasets-reproduction.md"><code>metadata/omitted-datasets-reproduction.md</code></a>: local recreation guide</li>
             <li><a href="metadata/source-license-assessment.md"><code>metadata/source-license-assessment.md</code></a>: redistribution assessment</li>
+            <li><a href="scripts/list_tasks.py"><code>scripts/list_tasks.py</code></a>: task/status listing helper</li>
+            <li><a href="scripts/export_benchmark_splits.py"><code>scripts/export_benchmark_splits.py</code></a>: ML train/test export helper</li>
             <li><a href="SHA256SUMS.txt"><code>SHA256SUMS.txt</code></a>: verification manifest</li>
           </ul>
           <div class="callout">

@@ -14,12 +14,14 @@ These are real, cleaned, preserved-ratio, benchmark-ready IDS classification inp
 - Machine-readable availability fields that distinguish downloadable CSVs from omitted/not redistributed tasks.
 - Source benchmark definitions and materialization/task manifests under `metadata/source_manifests/`.
 - Reproduction instructions for omitted tasks in `metadata/omitted-datasets-reproduction.md`.
-- Local recreation and verification scripts under `scripts/`.
+- Local recreation, verification, task listing, and ML split-export scripts under `scripts/`.
 - `SHA256SUMS.txt` and `metadata/checksums.json` for the retained public bundle files.
 
 ## Public Bundle Scope
 
 Directly downloadable CSVs are kept only for CIC-IDS-2017, CSE-CIC-IDS2018, HIKARI-2021, 5G-NIDD, and RT-IoT2022. Edge-IIoTset, CIC-UNSW-NB15, and the CICIoMT2024Small mirror tasks are metadata-only omissions in this public release.
+
+The website download page lists direct raw links for all 17 public CSVs. From a local clone, `python3 scripts/list_tasks.py --status downloadable --format csv` prints the same public task surface and local CSV paths.
 
 | Source corpus | Full benchmark tasks | Downloadable CSVs under `data/` | Omitted/not redistributed tasks | Public release status |
 |---|---:|---:|---:|---|
@@ -46,11 +48,65 @@ Every row in `metadata/datasets.json` and `metadata/datasets.csv` includes avail
 - `omission_reason` and `omission_caveat`: populated for omitted tasks.
 - `redistribution_caveat`: conservative provenance/licensing note for every corpus.
 
+## Benchmark-Ready CSV Meaning
+
+The released public CSVs are benchmark-ready in the narrow input-surface sense: they are the exact cleaned, selected, preserved-ratio task CSVs used by the benchmark definitions. They are ready to split into benchmark train/test partitions, but they are not preprocessed into a model-specific feature matrix.
+
+Already done in the downloadable CSVs:
+
+- Binary task selection is complete, with DoS/DDoS/flood-like tasks excluded by the benchmark scope rule.
+- Labels are normalized to `label`, where `0` is benign/normal majority and `1` is attack minority.
+- Each task has the preserved-ratio selected rows needed for 500 minority attack train rows and 500 minority attack test rows.
+- Row order is preserved for `classwise_temporal` benchmark split reconstruction.
+- Known materialization drops are already applied where recorded, such as 5G-NIDD `Offset`, `SrcTCPBase`, and `DstTCPBase`.
+- Source provenance columns such as `source_row_index` are retained in the full CSVs for auditability.
+
+Not already done in the downloadable CSVs:
+
+- The CSVs are not separated into train/test files; use the benchmark split definitions or `scripts/export_benchmark_splits.py`.
+- The CSVs are not standardized, scaled, one-hot encoded, train-imputed, or otherwise transformed for a specific estimator.
+- The CSVs are not synthetic DCTABGAN outputs.
+- Provenance columns such as `source_row_index` are not ML features; the split export helper strips them by default.
+- Port-like and protocol/service fields remain unless a task-specific materialization note says otherwise; decide whether to keep them for your modeling question.
+
 ## Split And Count Semantics
 
 The downloadable CSV files are full cleaned selected-row datasets, not separate train/test files. The benchmark definitions specify `split_mode: classwise_temporal`, `test_size: 0.5`, and `val_size: 0.0`. Downstream benchmark code reconstructs train/test partitions from the definition and row order.
 
 Every task in the 30-task benchmark has exactly 500 minority attack rows for train and 500 minority attack rows for test. Majority train/test counts preserve the source-ratio floor for each task and are recorded in `metadata/datasets.json`, including the omitted tasks.
+
+## ML Helper Scripts
+
+List the task surface and redistribution status:
+
+```bash
+python3 scripts/list_tasks.py --status all
+python3 scripts/list_tasks.py --status downloadable --format csv
+python3 scripts/list_tasks.py --status omitted --show-caveats
+```
+
+Export benchmark-consistent train/test CSVs for a public task:
+
+```bash
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot
+```
+
+The exporter reads `metadata/datasets.json` and the mirrored benchmark definition, reconstructs the `classwise_temporal` train/test split from CSV row order and recorded counts, and writes `train.csv`, `test.csv`, and `split_metadata.json`. It drops `source_row_index` by default. Add `--keep-provenance-columns` only if you explicitly want audit columns retained.
+
+For a dependency-free numeric matrix export with train-only fitting semantics:
+
+```bash
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot_encoded \
+  --encoded
+```
+
+With `--encoded`, the script also writes `X_train.csv`, `y_train.csv`, `X_test.csv`, `y_test.csv`, and `encoded_metadata.json`. Numeric fill values and categorical one-hot levels are fitted from train rows only, then applied to test rows. This is a basic convenience export for scikit-learn-style workflows, not the full DCTABGAN benchmark modeling pipeline.
+
+For omitted tasks, recreate the local/private CSV first with `scripts/recreate_omitted_datasets.py`; the split exporter does not download or redistribute omitted data.
 
 ## Omitted Dataset Reproduction
 

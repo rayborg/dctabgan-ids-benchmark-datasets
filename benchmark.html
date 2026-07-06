@@ -16,6 +16,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="tasks.html">Tasks</a>
         <a href="download.html">Download</a>
         <a href="recreate.html">Recreate Omitted</a>
         <a href="benchmark.html" aria-current="page">Replicate Benchmark</a>
@@ -65,15 +66,36 @@ PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_M
       </div>
       <aside class="panel">
         <h3>Important replication rule</h3>
-        <p>The downloadable CSVs are not already split into train and test files. The benchmark reconstructs train/test partitions from the definition and row order. If you want the exact benchmark treatment pipeline, keep that distinction in mind.</p>
+        <p>The downloadable CSVs are not already split into train and test files. The benchmark reconstructs train/test partitions from the definition and row order. Use <code>scripts/export_benchmark_splits.py</code> if you want explicit train/test CSVs for a chosen task.</p>
       </aside>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Export benchmark-consistent train/test files</h2>
+        <p>For immediate ML use, this repository includes a metadata-driven splitter that uses the mirrored benchmark definition and task counts, preserves the benchmark <code>classwise_temporal</code> row-order semantics, and strips obvious audit columns such as <code>source_row_index</code> by default.</p>
+        <pre><code>python3 scripts/list_tasks.py --status all
+
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot
+
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot_encoded \
+  --encoded</code></pre>
+        <p>The optional <code>--encoded</code> path writes basic <code>X_train.csv</code>, <code>y_train.csv</code>, <code>X_test.csv</code>, and <code>y_test.csv</code> files. Numeric fills and categorical one-hot levels are fit on train rows only, then applied to test rows. This helper is a convenience for scikit-learn-style experiments, not a replacement for the benchmark repo's full treatment/evaluation pipeline.</p>
+      </div>
     </section>
 
     <section class="section">
       <div class="panel">
         <h2>Recommended replication workflow</h2>
         <pre><code>git clone https://github.com/rayborg/dctabgan-ids-benchmark-datasets.git
-git clone https://github.com/rayborg/dctabgan-benchmark-expansion.git
+
+# Obtain a separate local checkout of dctabgan-benchmark-expansion
+# by whatever route is available to you. This site does not assume
+# that benchmark worktree is publicly clonable.
 
 cd dctabgan-ids-benchmark-datasets
 shasum -a 256 -c SHA256SUMS.txt
@@ -82,7 +104,11 @@ python3 scripts/recreate_omitted_datasets.py \
   --benchmark-repo ../dctabgan-benchmark-expansion
 
 python3 scripts/verify_omitted_datasets.py \
-  --benchmark-repo ../dctabgan-benchmark-expansion</code></pre>
+  --benchmark-repo ../dctabgan-benchmark-expansion
+
+python3 scripts/export_benchmark_splits.py \
+  --task friday_bot \
+  --output-dir ml_exports/friday_bot</code></pre>
         <p>After that, your local clone contains the same 30-task cleaned dataset surface used by the benchmark definitions.</p>
       </div>
     </section>
