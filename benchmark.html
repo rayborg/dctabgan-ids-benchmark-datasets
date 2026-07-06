@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Replicate the Benchmark Inputs and Task Surface</title>
+  <meta name="description" content="How to reconstruct the exact DCTABGAN IDS benchmark input surface and definitions.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="recreate.html">Recreate Omitted</a>
+        <a href="benchmark.html" aria-current="page">Replicate Benchmark</a>
+        <a href="compare.html">Compare Your Method</a>
+        <a href="licensing.html">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-intro">
+      <div class="eyebrow">Exact benchmark replication</div>
+      <h1>Reconstruct the same 30-task dataset surface we used</h1>
+      <p>This page is for researchers who want to reproduce the same benchmark inputs, not just reuse a few cleaned CSVs.</p>
+    </section>
+
+    <section class="section">
+      <div class="step-grid">
+        <article class="panel step">
+          <div class="step-number">1</div>
+          <h3>Clone the public bundle</h3>
+          <p>Start here to get the 17 directly shipped CSVs, the full 30-task metadata, benchmark definitions, and omitted-task recreation tooling.</p>
+        </article>
+        <article class="panel step">
+          <div class="step-number">2</div>
+          <h3>Clone the benchmark repo</h3>
+          <p>You need a separate local clone of <code>dctabgan-benchmark-expansion</code> if you want to recreate the omitted tasks exactly.</p>
+        </article>
+        <article class="panel step">
+          <div class="step-number">3</div>
+          <h3>Recreate omitted tasks locally</h3>
+          <p>Use the included scripts to copy and verify the 13 omitted processed CSVs into your local release clone.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>Source-of-truth definitions</h2>
+        <p>The full task surface is inherited from the May 11 no-DoS 30D benchmark definition, and the active operational equal-dose definition inherits that same dataset surface:</p>
+        <pre><code>metadata/source_manifests/benchmark_definitions/
+PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json
+
+metadata/source_manifests/benchmark_definitions/
+PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json</code></pre>
+        <p>Those files define the exact task list, processed dataset names, data folders, and split semantics used to construct the release.</p>
+      </div>
+      <aside class="panel">
+        <h3>Important replication rule</h3>
+        <p>The downloadable CSVs are not already split into train and test files. The benchmark reconstructs train/test partitions from the definition and row order. If you want the exact benchmark treatment pipeline, keep that distinction in mind.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Recommended replication workflow</h2>
+        <pre><code>git clone https://github.com/rayborg/dctabgan-ids-benchmark-datasets.git
+git clone https://github.com/rayborg/dctabgan-benchmark-expansion.git
+
+cd dctabgan-ids-benchmark-datasets
+shasum -a 256 -c SHA256SUMS.txt
+
+python3 scripts/recreate_omitted_datasets.py \
+  --benchmark-repo ../dctabgan-benchmark-expansion
+
+python3 scripts/verify_omitted_datasets.py \
+  --benchmark-repo ../dctabgan-benchmark-expansion</code></pre>
+        <p>After that, your local clone contains the same 30-task cleaned dataset surface used by the benchmark definitions.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Protocol documents to read alongside the data</h2>
+        <p>If your goal is exact replication rather than just dataset reuse, read these mirrored benchmark notes in addition to the dataset manifests:</p>
+        <ul class="mini-list">
+          <li><a href="metadata/source_manifests/protocol/MODERN_IDS_30D_EXECUTION_RUNBOOK_2026-05-11.md">Execution runbook</a></li>
+          <li><a href="metadata/source_manifests/protocol/MODERN_IDS_30D_PIPELINE_INTEGRATION_PLAN_2026-05-11.md">Pipeline integration plan</a></li>
+          <li><a href="metadata/source_manifests/protocol/DCTABGAN_30D_20METHOD_METHODS_SYNTHESIS_2026-05-11.md">Methods synthesis note</a></li>
+        </ul>
+        <p>Those files help explain how the benchmark worktree uses the cleaned CSVs, manifests, and method surface when running the actual modeling and evaluation scripts.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>What this repo gives you vs. what the benchmark repo gives you</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>This dataset repo</th>
+              <th>The benchmark repo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cleaned benchmark input CSVs</td><td>Training/evaluation code and manuscript-facing benchmark logic</td></tr>
+            <tr><td>Public-safe 17-task downloadable subset</td><td>Full materialized benchmark worktree</td></tr>
+            <tr><td>Machine-readable task metadata and provenance</td><td>Experiment scripts, modeling pipelines, and output tables</td></tr>
+            <tr><td>Omitted-task copy/verify scripts</td><td>Optional materialization/rebuild scripts for upstream-derived processed inputs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>Next step: if you are benchmarking a new synthetic generator, use <a href="compare.html">Compare Your Method</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

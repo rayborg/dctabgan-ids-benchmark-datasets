@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-07-05T13:53:56+00:00",
+  "generated_at_utc": "2026-07-06T11:28:53+00:00",
   "algorithm": "SHA256",
-  "note": "Covers all released files except SHA256SUMS.txt, metadata/checksums.json, .git internals, Python caches, and local-only omitted CSV outputs.",
+  "note": "Covers all released files except SHA256SUMS.txt, metadata/checksums.json, and .git internals.",
   "files": [
     {
       "path": ".gitignore",
@@ -17,6 +17,21 @@
       "path": "_config.yml",
       "sha256": "7e82b3a2c3ae114e7a65f757b4d172aefa8af08d58be6e4766e818d03b0b7a84",
       "bytes": 149
+    },
+    {
+      "path": "assets/site.css",
+      "sha256": "8716327b0e09f7274a06f45bc1b1489dfd1c2940a3bbe9d81338dd02398b76be",
+      "bytes": 6115
+    },
+    {
+      "path": "benchmark.html",
+      "sha256": "63c53333046c3da68337a485c4adce96ab1bee05a454513546da034179a4f5eb",
+      "bytes": 6308
+    },
+    {
+      "path": "compare.html",
+      "sha256": "416eaba2df6e3a1509b3a3e97a47ffc14cc6c1811d9d1770188a1f85a4163300",
+      "bytes": 6133
     },
     {
       "path": "data/5g-nidd/5g_nidd_syn_scan_vs_benign/5g_nidd_syn_scan_vs_benign_preservedratio_train500minority_11500majority_test500minority_11500majority_additional10.csv",
@@ -104,9 +119,24 @@
       "bytes": 3894988
     },
     {
+      "path": "download.html",
+      "sha256": "e0fa821ded795d26df86bf42ca8b5d5faf55ef5306a39fe68e2c3af544a6fd7b",
+      "bytes": 10665
+    },
+    {
+      "path": "index.html",
+      "sha256": "21714ff8c30a0183226e1acceebdae0a456385f3c300e7e17f09f09d757bf2bd",
+      "bytes": 9320
+    },
+    {
       "path": "index.md",
       "sha256": "15b395e0db0a00081e35a8c8ed4774d5259b7c147e42fcd9c9fa8f61bff04153",
       "bytes": 3250
+    },
+    {
+      "path": "licensing.html",
+      "sha256": "507c9542de603579a5f23101477add8679644d3c458d6f66231e859e3e21074b",
+      "bytes": 3905
     },
     {
       "path": "metadata/datasets.csv",
@@ -417,6 +447,11 @@
       "path": "metadata/source_manifests/retained_single_label_25d/tuesday_ssh_patator_vs_benign.json",
       "sha256": "1178e957a453d25e7e8c59fb755151288a756b244271edae5545e27b425b631d",
       "bytes": 1140
+    },
+    {
+      "path": "recreate.html",
+      "sha256": "0b500c5a9d768341870b735fba077fd61c84f6c0bc7437703dcc67b4de25e2d9",
+      "bytes": 6598
     },
     {
       "path": "scripts/omitted_dataset_common.py",

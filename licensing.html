@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Licensing and Provenance Caveats</title>
+  <meta name="description" content="Conservative redistribution and provenance notes for the DCTABGAN IDS benchmark dataset release.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="recreate.html">Recreate Omitted</a>
+        <a href="benchmark.html">Replicate Benchmark</a>
+        <a href="compare.html">Compare Your Method</a>
+        <a href="licensing.html" aria-current="page">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-intro">
+      <div class="eyebrow">Conservative release posture</div>
+      <h1>Licensing and provenance caveats</h1>
+      <p>This release is intentionally conservative. It does not claim to relicense upstream corpora, and it does not assume that a public mirror automatically authorizes downstream public redistribution.</p>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>High-level corpus posture</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Corpus</th>
+              <th>Public CSVs shipped here?</th>
+              <th>Current reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>HIKARI-2021</td><td>Yes</td><td>Strong documented basis via CC BY 4.0 route</td></tr>
+            <tr><td>5G-NIDD</td><td>Yes</td><td>Strong documented basis via open Fairdata CC BY 4.0 route</td></tr>
+            <tr><td>RT-IoT2022</td><td>Yes</td><td>Strong documented basis via UCI CC BY 4.0 route</td></tr>
+            <tr><td>CIC-IDS-2017</td><td>Yes</td><td>Included with CIC provenance caveats; redistribution language appears supportive, but derivative-subset rights are not framed as a standard open-data license</td></tr>
+            <tr><td>CSE-CIC-IDS2018</td><td>Yes</td><td>Included with CIC provenance caveats; redistribution language appears broad, but this repo does not treat that as a blanket relicensing</td></tr>
+            <tr><td>Edge-IIoTset</td><td>No</td><td>Public mirror terms appear noncommercial/share-alike; omitted from the public bundle to avoid overclaiming rights</td></tr>
+            <tr><td>CIC-UNSW-NB15</td><td>No</td><td>Academic use is explicit, but redistribution of repackaged benchmark subsets was not explicitly verified</td></tr>
+            <tr><td>CICIoMT2024Small mirror</td><td>No</td><td>Mirror-derived small artifact was the benchmark input, but mirror-specific license terms were unclear</td></tr>
+          </tbody>
+        </table>
+        <p><a href="metadata/source-license-assessment.md">Read the full source-license assessment</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Why mirrors matter</h2>
+        <p>A public mirror can be useful for reproducibility, but it does not automatically prove that every downstream redistribution is authorized. This matters most when the benchmark used a mirrored artifact instead of an official open release or when the official route is gated and the public mirror carries separate terms.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>For practical use, start with <a href="download.html">Download</a> or <a href="recreate.html">Recreate Omitted</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

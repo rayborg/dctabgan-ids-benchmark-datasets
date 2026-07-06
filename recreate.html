@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recreate the Omitted Datasets Locally</title>
+  <meta name="description" content="How to recreate the 13 omitted DCTABGAN benchmark tasks exactly from a separate benchmark clone.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="recreate.html" aria-current="page">Recreate Omitted</a>
+        <a href="benchmark.html">Replicate Benchmark</a>
+        <a href="compare.html">Compare Your Method</a>
+        <a href="licensing.html">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-intro">
+      <div class="eyebrow">Exact local/private reconstruction</div>
+      <h1>Recreate the 13 omitted tasks exactly as used in the benchmark</h1>
+      <p>This workflow exists so a researcher can clone this release repo and still rebuild the full 30-task benchmark surface locally without us directly redistributing the higher-risk corpora.</p>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>What you need</h2>
+        <ul class="mini-list">
+          <li>This release repo clone.</li>
+          <li>A separate local clone of <code>dctabgan-benchmark-expansion</code>.</li>
+          <li>Either the already-materialized omitted processed CSVs inside that benchmark clone, or the upstream inputs needed for the benchmark prep scripts.</li>
+        </ul>
+        <div class="callout">
+          <strong>Important:</strong> the omitted-task scripts copy and verify local files. They do not download upstream corpora, do not bypass source access requirements, and do not grant redistribution rights for omitted data.
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>Fast path: copy exact processed CSVs from the benchmark clone</h2>
+        <pre><code>python3 scripts/recreate_omitted_datasets.py \
+  --benchmark-repo /path/to/dctabgan-benchmark-expansion
+
+python3 scripts/verify_omitted_datasets.py \
+  --benchmark-repo /path/to/dctabgan-benchmark-expansion</code></pre>
+        <p>This path is preferred because it recreates the omitted tasks by copying the exact processed benchmark CSVs and verifying them against expected checksums, row counts, label counts, and column counts.</p>
+      </div>
+      <aside class="panel">
+        <h3>What gets created locally</h3>
+        <ul class="mini-list">
+          <li><code>data/cic-unsw-nb15/...</code></li>
+          <li><code>data/ciciomt2024small-mirror/...</code></li>
+          <li><code>data/edge-iiotset/...</code></li>
+        </ul>
+        <p>Those directories are intentionally ignored by git so they remain local/private outputs rather than public bundle files.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>If the processed omitted CSVs are not present yet</h2>
+        <pre><code>python3 scripts/recreate_omitted_datasets.py \
+  --benchmark-repo /path/to/dctabgan-benchmark-expansion \
+  --run-benchmark-prep</code></pre>
+        <p>This wrapper asks the benchmark repo to run its own materialization scripts first and then performs the same copy-and-verify process. It is still only a local workflow; it does not fetch upstream corpora for you.</p>
+        <p>The underlying benchmark scripts are:</p>
+        <pre><code>python3 repo/scripts/prepare_preserved_ratio_train500_test500_single_label_benchmark.py
+python3 repo/scripts/prepare_modern_ids_preserved_ratio_train500_test500_benchmark.py
+python3 repo/scripts/prepare_additional_modern_ids_preserved_ratio_train500_test500_benchmark.py</code></pre>
+        <p>If you need to go this route, the benchmark worktree must already contain the upstream raw or staged inputs expected by those scripts. The most important cases are:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Omitted corpus</th>
+              <th>What the benchmark prep expects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>CIC-UNSW-NB15</td><td>The benchmark repo expects local raw inputs such as <code>Data.csv</code> and <code>Label.csv</code> in its UNSW raw-data location.</td></tr>
+            <tr><td>CICIoMT2024Small mirror</td><td>The benchmark repo expects the modern IDS staging layout and manifests used by the modern7 preparation script, including staged <code>train.csv</code>, <code>test.csv</code>, and split metadata.</td></tr>
+            <tr><td>Edge-IIoTset</td><td>The benchmark repo expects the modern IDS staging layout for both the modern7 and additional10 preparation surfaces, depending on task.</td></tr>
+          </tbody>
+        </table>
+        <p>For the exact manifest pointers, read <a href="metadata/omitted-datasets-reproduction.md">metadata/omitted-datasets-reproduction.md</a> and the protocol notes in <a href="metadata/source_manifests/protocol/MODERN_IDS_30D_EXECUTION_RUNBOOK_2026-05-11.md">the execution runbook</a>.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Exact manifests behind the workflow</h2>
+        <p>The omitted-task script reads the machine-readable manifest:</p>
+        <pre><code>metadata/omitted-datasets.json</code></pre>
+        <p>That file records, for each omitted task:</p>
+        <ul class="mini-list">
+          <li>exact processed source path inside the benchmark repo</li>
+          <li>local target path in this release repo</li>
+          <li>expected byte size and SHA256</li>
+          <li>expected row count, column count, and label counts</li>
+          <li>the benchmark rebuild script to use if needed</li>
+        </ul>
+        <p><a href="metadata/omitted-datasets-reproduction.md">Read the full omitted-task reproduction note</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>Once you have the omitted tasks locally, continue with <a href="benchmark.html">Replicate Benchmark</a> or <a href="compare.html">Compare Your Method</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

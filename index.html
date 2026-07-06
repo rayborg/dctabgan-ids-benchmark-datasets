@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCTABGAN IDS Benchmark Datasets</title>
+  <meta name="description" content="Public-safe subset of the DCTABGAN IDS benchmark datasets, with walkthroughs for ML use, benchmark replication, and synthetic-data comparison.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="download.html">Download</a>
+        <a href="recreate.html">Recreate Omitted</a>
+        <a href="benchmark.html">Replicate Benchmark</a>
+        <a href="compare.html">Compare Your Method</a>
+        <a href="licensing.html">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="site-shell hero-grid">
+        <div>
+          <div class="eyebrow">IDS benchmark release for reproducible ML research</div>
+          <h1>Use the same cleaned IDS benchmark inputs we used for DCTABGAN.</h1>
+          <p>This release is designed for three concrete research goals: quickly use the cleaned datasets in your own ML pipeline, reproduce the exact benchmark inputs we used, or compare a new synthetic tabular generator against the same IDS benchmark surface.</p>
+          <p>The full benchmark contains 30 binary attack-vs-benign/normal tasks. This public release directly ships 17 lower-risk cleaned CSVs and gives you exact scripts and manifests to recreate the remaining 13 omitted tasks locally.</p>
+          <div class="button-row">
+            <a class="button primary" href="download.html">Start With the Public Bundle</a>
+            <a class="button secondary" href="recreate.html">Recreate the Omitted Tasks</a>
+            <a class="button" href="compare.html">Compare Your Generator</a>
+          </div>
+          <div class="utility-links">
+            <a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets">GitHub repository</a>
+            <a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/archive/refs/heads/main.zip">Download repository ZIP</a>
+            <a href="README.md">README</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <h3>At a glance</h3>
+          <div class="stat-grid">
+            <div class="stat"><strong>30</strong><span>Total benchmark tasks</span></div>
+            <div class="stat"><strong>17</strong><span>Downloadable CSVs</span></div>
+            <div class="stat"><strong>13</strong><span>Locally reproducible omitted tasks</span></div>
+            <div class="stat"><strong>8</strong><span>Source corpora</span></div>
+            <div class="stat"><strong>500 / 500</strong><span>Minority train/test rows per task</span></div>
+            <div class="stat"><strong>No DoS</strong><span>No DoS, DDoS, or flood-like tasks</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <h2>Choose your path</h2>
+        <div class="card-grid">
+          <article class="panel card">
+            <h3>I want benchmark-ready IDS CSVs for my own ML experiments</h3>
+            <p>Clone the repo, verify the checksums, inspect the task metadata, and use the 17 directly downloadable cleaned datasets immediately.</p>
+            <div class="tag-row">
+              <span class="tag">Fastest path</span>
+              <span class="tag">17 public CSVs</span>
+              <span class="tag">ML-ready</span>
+            </div>
+            <p><a href="download.html">Go to the download guide</a></p>
+          </article>
+          <article class="panel card">
+            <h3>I want the full 30-task dataset surface we used</h3>
+            <p>Use the public bundle for the 17 shipped tasks, then run the included scripts to copy and verify the 13 omitted tasks from a separately obtained benchmark clone.</p>
+            <div class="tag-row">
+              <span class="tag">Exact task recreation</span>
+              <span class="tag">Checksum verified</span>
+              <span class="tag">No relicensing claim</span>
+            </div>
+            <p><a href="recreate.html">Go to the recreation walkthrough</a></p>
+          </article>
+          <article class="panel card">
+            <h3>I want to compare a new synthetic-data method fairly</h3>
+            <p>Follow the benchmark scope, split semantics, and evaluation conventions so your generator can be compared against the same IDS task surface and treatment framing.</p>
+            <div class="tag-row">
+              <span class="tag">Benchmark-focused</span>
+              <span class="tag">Generator comparison</span>
+              <span class="tag">Reproducible</span>
+            </div>
+            <p><a href="compare.html">Go to the comparison guide</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <h2>What this repository gives you</h2>
+        <div class="step-grid">
+          <article class="panel step">
+            <div class="step-number">1</div>
+            <h3>Cleaned benchmark inputs</h3>
+            <p>Each task is a cleaned binary IDS CSV with <code>label</code> as the target, where <code>0</code> is the majority benign/normal class and <code>1</code> is the minority attack class.</p>
+          </article>
+          <article class="panel step">
+            <div class="step-number">2</div>
+            <h3>Machine-readable metadata</h3>
+            <p>The release includes CSV and JSON manifests that record corpus, task key, exact processed source path, counts, availability status, and redistribution caveats.</p>
+          </article>
+          <article class="panel step">
+            <div class="step-number">3</div>
+            <h3>Exact omitted-task reconstruction</h3>
+            <p>The release includes scripts that copy the omitted processed CSVs from a separate benchmark checkout and verify the recreated files against expected checksums, counts, and column shapes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell two-col">
+        <div class="panel">
+          <h3>Benchmark scope</h3>
+          <p>This release follows the active no-DoS equal-dose IDS benchmark surface used in the DCTABGAN study. The benchmark intentionally excludes DoS, DDoS, and flood-like tasks as a scope-control decision. That is a benchmark design choice, not a claim that those attacks are unimportant.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Corpus</th>
+                <th>Full tasks</th>
+                <th>Downloadable now</th>
+                <th>Omitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>CIC-IDS-2017</td><td>4</td><td>4</td><td>0</td></tr>
+              <tr><td>CSE-CIC-IDS2018</td><td>4</td><td>4</td><td>0</td></tr>
+              <tr><td>HIKARI-2021</td><td>2</td><td>2</td><td>0</td></tr>
+              <tr><td>5G-NIDD</td><td>3</td><td>3</td><td>0</td></tr>
+              <tr><td>RT-IoT2022</td><td>4</td><td>4</td><td>0</td></tr>
+              <tr><td>Edge-IIoTset</td><td>6</td><td>0</td><td>6</td></tr>
+              <tr><td>CIC-UNSW-NB15</td><td>5</td><td>0</td><td>5</td></tr>
+              <tr><td>CICIoMT2024Small mirror</td><td>2</td><td>0</td><td>2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="panel">
+          <h3>Files to know first</h3>
+          <ul class="mini-list">
+            <li><a href="README.md"><code>README.md</code></a>: release overview</li>
+            <li><a href="metadata/datasets.json"><code>metadata/datasets.json</code></a>: full task manifest</li>
+            <li><a href="metadata/omitted-datasets.json"><code>metadata/omitted-datasets.json</code></a>: omitted-task manifest</li>
+            <li><a href="metadata/omitted-datasets-reproduction.md"><code>metadata/omitted-datasets-reproduction.md</code></a>: local recreation guide</li>
+            <li><a href="metadata/source-license-assessment.md"><code>metadata/source-license-assessment.md</code></a>: redistribution assessment</li>
+            <li><a href="SHA256SUMS.txt"><code>SHA256SUMS.txt</code></a>: verification manifest</li>
+          </ul>
+          <div class="callout">
+            <strong>Important:</strong> this repository does not claim to relicense upstream corpora. The public bundle is deliberately conservative, and the omitted tasks remain local/private recreation workflows unless you independently verify redistribution rights for your own use case.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>Repository: <a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets">rayborg/dctabgan-ids-benchmark-datasets</a></p>
+    </div>
+  </footer>
+</body>
+</html>

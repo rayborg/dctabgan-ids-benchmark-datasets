@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compare a New Synthetic Data Generator</title>
+  <meta name="description" content="How to use the DCTABGAN IDS benchmark datasets to compare a new synthetic data generation method fairly.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="recreate.html">Recreate Omitted</a>
+        <a href="benchmark.html">Replicate Benchmark</a>
+        <a href="compare.html" aria-current="page">Compare Your Method</a>
+        <a href="licensing.html">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-intro">
+      <div class="eyebrow">Synthetic-data method evaluation</div>
+      <h1>Use the benchmark as a fair IDS comparison surface</h1>
+      <p>If you are testing a new generator or augmentation method, this page highlights the choices that matter most for a fair comparison against the DCTABGAN benchmark setup.</p>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Fair-comparison checklist</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Benchmark choice</th>
+              <th>What to do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Task surface</td><td>Use the same 30 no-DoS/no-DDoS/no-flood binary IDS tasks, or explicitly state if you use only the 17 public tasks.</td></tr>
+            <tr><td>Class semantics</td><td>Keep <code>label = 0</code> as majority benign/normal and <code>label = 1</code> as minority attack.</td></tr>
+            <tr><td>Split-first protocol</td><td>Do not fit preprocessing or generate synthetic rows using the test rows.</td></tr>
+            <tr><td>Dose matching</td><td>If comparing against the equal-dose headline result, align to the 1x minority-generation target.</td></tr>
+            <tr><td>Evaluation rows</td><td>Evaluate on untouched real test rows only.</td></tr>
+            <tr><td>Metrics</td><td>Report recall, FPR, precision, MCC, F1, balanced accuracy, AUROC, and AP/PR-AUC.</td></tr>
+            <tr><td>Dataset-level reporting</td><td>Prefer dataset-level paired comparisons over pooled-row claims.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>Minimum practical workflow</h2>
+        <pre><code># 1. Clone the dataset release
+git clone https://github.com/rayborg/dctabgan-ids-benchmark-datasets.git
+
+# 2. Optionally recreate the omitted 13 tasks locally
+cd dctabgan-ids-benchmark-datasets
+python3 scripts/recreate_omitted_datasets.py \
+  --benchmark-repo /path/to/dctabgan-benchmark-expansion
+
+# 3. Use metadata/datasets.json to enumerate tasks and counts
+# 4. Run your own split-first training/evaluation pipeline</code></pre>
+        <p>If you want to align with the original benchmark structure as closely as possible, use the benchmark definitions and mirrored protocol docs here rather than inventing your own task surface or split semantics:</p>
+        <ul class="mini-list">
+          <li><a href="metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json">30-task dataset definition</a></li>
+          <li><a href="metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_CLEAN_DCT_AND_GAN_DOSE_MATCHED_OPERATIONAL_BENCHMARK_DEFINITION_2026-05-20.json">Active operational equal-dose definition</a></li>
+          <li><a href="metadata/source_manifests/protocol/MODERN_IDS_30D_EXECUTION_RUNBOOK_2026-05-11.md">Execution runbook</a></li>
+        </ul>
+      </div>
+      <aside class="panel">
+        <h3>Important comparison note</h3>
+        <p>This repo gives you the benchmark input surface and the exact omitted-task recreation path. It does not itself evaluate your new generator. Use your own modeling pipeline or the benchmark repo as the evaluation driver.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Metadata fields worth using programmatically</h2>
+        <ul class="mini-list">
+          <li><code>downloadable</code>: whether the task is directly bundled</li>
+          <li><code>public_bundle_status</code>: downloadable vs omitted</li>
+          <li><code>train_counts</code> and <code>test_counts</code>: exact majority/minority supports</li>
+          <li><code>source_benchmark_csv</code>: exact benchmark-processed source path</li>
+          <li><code>local_reproduction</code>: how to rebuild or copy omitted tasks privately</li>
+        </ul>
+        <p><a href="metadata/datasets.json">Open the full JSON manifest</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>Suggested reporting checklist for a new generator</h2>
+        <ul class="mini-list">
+          <li>State whether you used the 17 public tasks only or the full 30-task surface.</li>
+          <li>State whether your augmentation is dose-matched to the equal-dose 1x framing.</li>
+          <li>Keep preprocessing train-only and evaluate on untouched real test rows.</li>
+          <li>Report recall, FPR, precision, MCC, F1, balanced accuracy, AUROC, and AP/PR-AUC.</li>
+          <li>Prefer dataset-level paired comparisons over pooled-row claims.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>If you need the full 30-task surface first, go to <a href="recreate.html">Recreate Omitted</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

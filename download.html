@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download and Use the Public Bundle</title>
+  <meta name="description" content="How to download, verify, and use the 17 publicly redistributed DCTABGAN IDS benchmark CSVs.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="brand" href="index.html">
+        <strong>DCTABGAN IDS Benchmark Datasets</strong>
+        <span>Public-safe release plus exact local recreation workflow</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="download.html" aria-current="page">Download</a>
+        <a href="recreate.html">Recreate Omitted</a>
+        <a href="benchmark.html">Replicate Benchmark</a>
+        <a href="compare.html">Compare Your Method</a>
+        <a href="licensing.html">Licensing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="page-intro">
+      <div class="eyebrow">Quickstart for researchers</div>
+      <h1>Download and use the 17 public benchmark CSVs</h1>
+      <p>This page is the fastest path if you want cleaned IDS benchmark inputs for your own ML experiments without recreating the omitted corpora first.</p>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>1. Clone and verify</h2>
+        <pre><code>git clone https://github.com/rayborg/dctabgan-ids-benchmark-datasets.git
+cd dctabgan-ids-benchmark-datasets
+shasum -a 256 -c SHA256SUMS.txt</code></pre>
+        <p>The checksum manifest covers the 17 downloadable CSVs plus docs, metadata, and scripts. If you later recreate omitted tasks locally, verify those separately with <code>scripts/verify_omitted_datasets.py</code>.</p>
+      </div>
+      <aside class="panel">
+        <h3>What you get immediately</h3>
+        <ul class="mini-list">
+          <li>4 CIC-IDS-2017 tasks</li>
+          <li>4 CSE-CIC-IDS2018 tasks</li>
+          <li>2 HIKARI-2021 tasks</li>
+          <li>3 5G-NIDD tasks</li>
+          <li>4 RT-IoT2022 tasks</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>2. Understand the files</h2>
+        <p>Each downloadable task is a full cleaned CSV, not a separate train/test split export. The benchmark definitions specify the split semantics, and the benchmark code reconstructs train/test partitions from the row order and counts. Every task has exactly 500 minority attack rows in train and 500 minority attack rows in test.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Key file</th>
+              <th>What it tells you</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="metadata/datasets.csv"><code>metadata/datasets.csv</code></a></td><td>One-row-per-task summary including counts, provenance notes, and whether the CSV is downloadable.</td></tr>
+            <tr><td><a href="metadata/datasets.json"><code>metadata/datasets.json</code></a></td><td>Full machine-readable task manifest with benchmark paths and local reproduction details.</td></tr>
+            <tr><td><a href="metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json"><code>30D benchmark definition</code></a></td><td>The exact task list and processed dataset filenames.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>3. Browse the downloadable corpus directories</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Corpus</th>
+              <th>Tasks</th>
+              <th>Browse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>CIC-IDS-2017</td><td>4</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cic-ids-2017">GitHub folder</a></td></tr>
+            <tr><td>CSE-CIC-IDS2018</td><td>4</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cse-cic-ids2018">GitHub folder</a></td></tr>
+            <tr><td>HIKARI-2021</td><td>2</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/hikari-2021">GitHub folder</a></td></tr>
+            <tr><td>5G-NIDD</td><td>3</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/5g-nidd">GitHub folder</a></td></tr>
+            <tr><td>RT-IoT2022</td><td>4</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/rt-iot2022">GitHub folder</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>4. Downloadable task catalog</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Task key</th>
+              <th>Corpus</th>
+              <th>CSV location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>friday_bot</code></td><td>CIC-IDS-2017</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cic-ids-2017/friday_bot">GitHub folder</a></td></tr>
+            <tr><td><code>thursday_web_attack_bruteforce</code></td><td>CIC-IDS-2017</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cic-ids-2017/thursday_web_attack_bruteforce">GitHub folder</a></td></tr>
+            <tr><td><code>tuesday_ftp_patator</code></td><td>CIC-IDS-2017</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cic-ids-2017/tuesday_ftp_patator">GitHub folder</a></td></tr>
+            <tr><td><code>tuesday_ssh_patator</code></td><td>CIC-IDS-2017</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cic-ids-2017/tuesday_ssh_patator">GitHub folder</a></td></tr>
+            <tr><td><code>cse_cic_ids2018_bot</code></td><td>CSE-CIC-IDS2018</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cse-cic-ids2018/cse_cic_ids2018_bot">GitHub folder</a></td></tr>
+            <tr><td><code>cse_cic_ids2018_ftp_bruteforce</code></td><td>CSE-CIC-IDS2018</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cse-cic-ids2018/cse_cic_ids2018_ftp_bruteforce">GitHub folder</a></td></tr>
+            <tr><td><code>cse_cic_ids2018_infilteration</code></td><td>CSE-CIC-IDS2018</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cse-cic-ids2018/cse_cic_ids2018_infilteration">GitHub folder</a></td></tr>
+            <tr><td><code>cse_cic_ids2018_ssh_bruteforce</code></td><td>CSE-CIC-IDS2018</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/cse-cic-ids2018/cse_cic_ids2018_ssh_bruteforce">GitHub folder</a></td></tr>
+            <tr><td><code>hikari_bruteforce_vs_benign</code></td><td>HIKARI-2021</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/hikari-2021/hikari_bruteforce_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>hikari_probing_vs_benign</code></td><td>HIKARI-2021</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/hikari-2021/hikari_probing_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>5g_nidd_tcp_connect_scan_vs_benign</code></td><td>5G-NIDD</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/5g-nidd/5g_nidd_tcp_connect_scan_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>5g_nidd_syn_scan_vs_benign</code></td><td>5G-NIDD</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/5g-nidd/5g_nidd_syn_scan_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>5g_nidd_udp_scan_vs_benign</code></td><td>5G-NIDD</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/5g-nidd/5g_nidd_udp_scan_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>rt_iot2022_nmap_udp_scan_vs_benign</code></td><td>RT-IoT2022</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/rt-iot2022/rt_iot2022_nmap_udp_scan_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>rt_iot2022_nmap_xmas_tree_scan_vs_benign</code></td><td>RT-IoT2022</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/rt-iot2022/rt_iot2022_nmap_xmas_tree_scan_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>rt_iot2022_nmap_os_detection_vs_benign</code></td><td>RT-IoT2022</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/rt-iot2022/rt_iot2022_nmap_os_detection_vs_benign">GitHub folder</a></td></tr>
+            <tr><td><code>rt_iot2022_nmap_tcp_scan_vs_benign</code></td><td>RT-IoT2022</td><td><a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets/tree/main/data/rt-iot2022/rt_iot2022_nmap_tcp_scan_vs_benign">GitHub folder</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>5. Load a dataset in Python</h2>
+        <pre><code>import pandas as pd
+
+df = pd.read_csv(
+    "data/cic-ids-2017/friday_bot/"
+    "friday_bot_vs_benign_preservedratio_train500minority_48000benign_"
+    "test500minority_48000benign_chrono.csv"
+)
+
+print(df.shape)
+print(df["label"].value_counts())</code></pre>
+        <p>The target column is always <code>label</code>. The public bundle uses <code>0</code> for the majority benign/normal class and <code>1</code> for the minority attack class.</p>
+      </div>
+      <aside class="panel">
+        <h3>Need the full 30-task surface?</h3>
+        <p>The public bundle omits 13 higher-risk tasks from Edge-IIoTset, CIC-UNSW-NB15, and CICIoMT2024Small mirror. If you want the exact full surface we used, follow the local recreation workflow instead of expecting them under <code>data/</code>.</p>
+        <p><a href="recreate.html">Open the omitted-task recreation guide</a></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>Need the exact full benchmark? Go next to <a href="recreate.html">Recreate Omitted</a> or <a href="benchmark.html">Replicate Benchmark</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
