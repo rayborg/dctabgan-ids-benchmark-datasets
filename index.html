@@ -30,13 +30,13 @@
       <div class="site-shell hero-grid">
         <div>
           <div class="eyebrow">IDS benchmark release for reproducible ML research</div>
-          <h1>Use the same cleaned IDS benchmark inputs we used for DCTABGAN.</h1>
-          <p>This release is designed for three concrete research goals: quickly use the cleaned datasets in your own ML pipeline, reproduce the exact benchmark inputs we used, or compare a new synthetic tabular generator against the same IDS benchmark surface.</p>
-          <p>The full benchmark contains 30 binary attack-vs-benign/normal tasks. This public release directly ships 17 lower-risk cleaned CSVs and gives you exact scripts and manifests to recreate the remaining 13 omitted tasks locally.</p>
+          <h1>Stress-test imbalanced-data methods on a real IDS benchmark with exact task counts and reproducible splits.</h1>
+          <p>This release is built for academics who want something stronger than a single toy dataset. It gives you a controlled IDS benchmark surface for testing resampling, cost-sensitive learning, synthetic tabular generation, and downstream classifier robustness under explicit majority/minority imbalance.</p>
+          <p>The full benchmark contains 30 binary attack-vs-benign/normal tasks across eight source corpora. This public release directly ships 17 lower-risk cleaned CSVs and gives you exact scripts, manifests, and copy-and-verify workflows to recreate the remaining 13 omitted tasks locally.</p>
           <div class="button-row">
-            <a class="button primary" href="download.html">Start With the Public Bundle</a>
-            <a class="button secondary" href="recreate.html">Recreate the Omitted Tasks</a>
-            <a class="button" href="compare.html">Compare Your Generator</a>
+            <a class="button primary" href="compare.html">Benchmark Your Method</a>
+            <a class="button secondary" href="download.html">Use the Public Datasets</a>
+            <a class="button" href="recreate.html">Recreate the Full 30-Task Surface</a>
           </div>
           <div class="utility-links">
             <a href="https://github.com/rayborg/dctabgan-ids-benchmark-datasets">GitHub repository</a>
@@ -55,6 +55,26 @@
             <div class="stat"><strong>No DoS</strong><span>No DoS, DDoS, or flood-like tasks</span></div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <h2>Why this benchmark is useful for imbalanced-learning research</h2>
+        <div class="card-grid">
+          <article class="panel card">
+            <h3>Method stress-testing, not just demo data</h3>
+            <p>You can evaluate synthetic-data generators, oversamplers, undersamplers, and cost-sensitive approaches on 30 controlled IDS tasks instead of a single convenience dataset.</p>
+          </article>
+          <article class="panel card">
+            <h3>Exact task composition is visible</h3>
+            <p>Every task has explicit majority/minority train and test counts. That makes it easier to reason about dose-matching, augmentation volume, and how severe the imbalance really is.</p>
+          </article>
+          <article class="panel card">
+            <h3>Full-surface replication is still possible</h3>
+            <p>Even where we do not directly redistribute a corpus, the repository still documents the exact processed source paths and provides scripts to recreate the omitted benchmark tasks locally.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -92,6 +112,60 @@
             </div>
             <p><a href="compare.html">Go to the comparison guide</a></p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <h2>Full task composition</h2>
+        <p>The table below mirrors the benchmark-facing dataset composition view used in the paper, with one added column for the source publication year. Publication year refers to the source record or citation year used to describe the corpus, while the row counts are the exact majority/minority supports used in the benchmark surface.</p>
+        <div class="table-wrap">
+          <table class="compact-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Source corpus</th>
+                <th>Benchmark dataset</th>
+                <th>Attack/minority label</th>
+                <th>Train maj./min.</th>
+                <th>Test maj./min.</th>
+                <th>Availability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Friday Bot vs BENIGN</td><td>Friday Bot</td><td>48,000/500</td><td>48,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Thursday Web Attack - Brute Force vs BENIGN</td><td>Thursday Web Attack - Brute Force</td><td>55,500/500</td><td>55,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Tuesday FTP-Patator vs BENIGN</td><td>Tuesday FTP-Patator</td><td>27,000/500</td><td>27,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CIC-IDS-2017</td><td>Tuesday SSH-Patator vs BENIGN</td><td>Tuesday SSH-Patator</td><td>36,500/500</td><td>36,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>Bot vs BENIGN</td><td>Bot</td><td>23,500/500</td><td>23,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>FTP-BruteForce vs BENIGN</td><td>FTP-BruteForce</td><td>34,500/500</td><td>34,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>Infilteration vs BENIGN</td><td>Infilteration</td><td>41,500/500</td><td>41,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2018</td><td>CSE-CIC-IDS2018</td><td>SSH-Bruteforce vs BENIGN</td><td>SSH-Bruteforce</td><td>35,500/500</td><td>35,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Exploits vs BENIGN</td><td>Exploits</td><td>5,500/500</td><td>5,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Fuzzers vs BENIGN</td><td>Fuzzers</td><td>6,000/500</td><td>6,000/500</td><td>Local recreate</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Generic vs BENIGN</td><td>Generic</td><td>38,500/500</td><td>38,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Reconnaissance vs BENIGN</td><td>Reconnaissance</td><td>10,500/500</td><td>10,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2015</td><td>CIC-UNSW-NB15</td><td>Shellcode vs BENIGN</td><td>Shellcode</td><td>85,000/500</td><td>85,000/500</td><td>Local recreate</td></tr>
+              <tr><td>2021</td><td>HIKARI-2021</td><td>Bruteforce vs BENIGN</td><td>Bruteforce</td><td>43,500/500</td><td>43,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2021</td><td>HIKARI-2021</td><td>Probing vs BENIGN</td><td>Probing</td><td>11,000/500</td><td>11,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2024</td><td>CICIoMT2024Small mirror</td><td>ARP Spoofing vs BENIGN</td><td>ARP Spoofing</td><td>12,500/500</td><td>12,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2024</td><td>CICIoMT2024Small mirror</td><td>MQTT Malformed Data vs BENIGN</td><td>MQTT Malformed Data</td><td>8,500/500</td><td>8,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>SQL injection vs NORMAL</td><td>SQL_injection_attack</td><td>15,500/500</td><td>15,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Password vs NORMAL</td><td>Password_attack</td><td>16,000/500</td><td>16,000/500</td><td>Local recreate</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Uploading vs NORMAL</td><td>Uploading_attack</td><td>21,000/500</td><td>21,000/500</td><td>Local recreate</td></tr>
+              <tr><td>2022</td><td>5G-NIDD</td><td>TCPConnectScan vs BENIGN</td><td>TCPConnectScan</td><td>11,500/500</td><td>11,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2022</td><td>5G-NIDD</td><td>SYNScan vs BENIGN</td><td>SYNScan</td><td>11,500/500</td><td>11,500/500</td><td>Public CSV</td></tr>
+              <tr><td>2022</td><td>5G-NIDD</td><td>UDPScan vs BENIGN</td><td>UDPScan</td><td>15,000/500</td><td>15,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Vulnerability scanner vs NORMAL</td><td>Vulnerability_scanner_attack</td><td>16,000/500</td><td>16,000/500</td><td>Local recreate</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Backdoor vs NORMAL</td><td>Backdoor_attack</td><td>32,000/500</td><td>32,000/500</td><td>Local recreate</td></tr>
+              <tr><td>2022</td><td>Edge-IIoTset</td><td>Port Scanning vs NORMAL</td><td>Port_Scanning_attack</td><td>35,500/500</td><td>35,500/500</td><td>Local recreate</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP UDP SCAN vs BENIGN</td><td>NMAP_UDP_SCAN</td><td>2,000/500</td><td>2,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP XMAS TREE SCAN vs BENIGN</td><td>NMAP_XMAS_TREE_SCAN</td><td>3,000/500</td><td>3,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP OS DETECTION vs BENIGN</td><td>NMAP_OS_DETECTION</td><td>3,000/500</td><td>3,000/500</td><td>Public CSV</td></tr>
+              <tr><td>2023</td><td>RT-IoT2022</td><td>NMAP TCP scan vs BENIGN</td><td>NMAP_TCP_scan</td><td>6,000/500</td><td>6,000/500</td><td>Public CSV</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
