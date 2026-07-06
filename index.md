@@ -8,14 +8,14 @@ This GitHub Pages-ready repository is the public-safe subset of the full 30-task
 
 It directly redistributes 17 cleaned CSVs and documents 13 omitted/not redistributed tasks for local reproduction. The full benchmark remains 30 binary attack-vs-benign/normal tasks.
 
-- Data: [`data/`](data/)
+- Data overview: [`download.html`](download.html)
 - Dataset manifest: [`metadata/datasets.json`](metadata/datasets.json)
 - CSV manifest: [`metadata/datasets.csv`](metadata/datasets.csv)
 - Omitted-task machine manifest: [`metadata/omitted-datasets.json`](metadata/omitted-datasets.json)
 - Omitted-task reproduction: [`metadata/omitted-datasets-reproduction.md`](metadata/omitted-datasets-reproduction.md)
-- Local recreation scripts: [`scripts/`](scripts/)
+- Local recreation scripts: [`scripts/list_tasks.py`](scripts/list_tasks.py) and [`scripts/export_benchmark_splits.py`](scripts/export_benchmark_splits.py)
 - Checksums: [`SHA256SUMS.txt`](SHA256SUMS.txt)
-- Source manifests: [`metadata/source_manifests/`](metadata/source_manifests/)
+- Source manifests: [`metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json`](metadata/source_manifests/benchmark_definitions/PRESERVED_RATIO_TRAIN500_TEST500_SINGLE_LABEL_NODOS_30D_BENCHMARK_DEFINITION_2026-05-11.json)
 
 ## Benchmark-Ready CSV Meaning
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-06T17:49:08+00:00",
+  "generated_at_utc": "2026-07-06T23:08:19+00:00",
   "algorithm": "SHA256",
   "note": "Covers all released files except SHA256SUMS.txt, metadata/checksums.json, and .git internals.",
   "files": [
@@ -130,8 +130,8 @@
     },
     {
       "path": "index.md",
-      "sha256": "020a8a7c1238da04b6c7c24720dc85f7c50fcce41d48e5c6ed1f3552328b5948",
-      "bytes": 4578
+      "sha256": "d33c5f09f5dac181d0359eb8967513ad1b7a752911c1420e75adb9a1ca114839",
+      "bytes": 4936
     },
     {
       "path": "licensing.html",
