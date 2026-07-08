@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-06T23:08:19+00:00",
+  "generated_at_utc": "2026-07-08T18:11:34+00:00",
   "algorithm": "SHA256",
   "note": "Covers all released files except SHA256SUMS.txt, metadata/checksums.json, and .git internals.",
   "files": [
@@ -20,8 +20,8 @@
     },
     {
       "path": "assets/site.css",
-      "sha256": "c5123e9fc2b23a86cc309a48be4af3da262f78bf1d5f9ea62785dbe912ef6831",
-      "bytes": 6377
+      "sha256": "12048c3aaa06fc88382e1100841a511bf9e08b154778bd5835f8626006ed29b3",
+      "bytes": 6569
     },
     {
       "path": "benchmark.html",

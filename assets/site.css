@@ -180,6 +180,7 @@ a:hover {
   border-radius: 1.1rem;
   padding: 1.15rem;
   box-shadow: var(--shadow);
+  overflow-wrap: anywhere;
 }
 
 .stat-grid,
@@ -348,6 +349,19 @@ pre {
 
 code {
   color: #d0ebff;
+}
+
+td a,
+td code,
+.panel code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+td code {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
 }
 
 .site-footer {
