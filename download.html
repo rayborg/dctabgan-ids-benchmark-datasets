@@ -62,7 +62,7 @@ python3 scripts/export_benchmark_splits.py \
         <h2>2. Understand the files</h2>
         <p>Each downloadable task is a full cleaned CSV, not a separate train/test split export. The benchmark definitions specify the split semantics, and the benchmark code reconstructs train/test partitions from the row order and counts. Every task has exactly 500 minority attack rows in train and 500 minority attack rows in test.</p>
         <p>Already done: binary labels, selected rows, no-DoS scope, preserved-ratio counts, benchmark row order, and recorded materialization drops. Not done: scaling, one-hot encoding, train-only imputation, estimator-specific transforms, or separate train/test files. The full CSVs retain <code>source_row_index</code> for auditability; the split helper drops it by default.</p>
-        <table>
+        <table class="download-catalog">
           <thead>
             <tr>
               <th>Key file</th>
